@@ -1,27 +1,20 @@
-plugins {
-    id 'org.springframework.boot' version '2.4.2'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
-}
 
-group = 'com.penguins.cloud'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+apply plugin:'application'
+//声明spring-boot插件
+apply plugin: "org.springframework.boot"
+//启动项
+mainClassName = "com.penguins.CloudPenguinsAuthApplication"
 
-repositories {
-    mavenCentral()
-}
-
+//service项目所需依赖
 dependencies {
+    implementation project(':cloud-penguins-commons')
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+//    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
     runtimeOnly 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
-}
-
-test {
-    useJUnitPlatform()
 }

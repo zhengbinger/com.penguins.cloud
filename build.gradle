@@ -1,22 +1,144 @@
-plugins {
-    id 'org.springframework.boot' version '2.4.2'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
+allprojects {
+    //创建项目时的你填写
+    group 'com.penguins.cloud'
+    version '0.0.1-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    //jdk版本
+    sourceCompatibility = 1.8
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        mavenLocal()
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        mavenCentral()
+    }
+
+    ext {
+        //这里管理版本
+    }
+
+    //项目中所使用到的依赖，这里添加的依赖会被所有项目，包括root项目继承
+    dependencies {
+//        testCompile("junit:junit:$junitVersion")
+//        compile("org.slf4j:slf4j-api:$slf4jVersion")
+        //也可直接将版本写在最后 compile("org.slf4j:slf4j-api:1.7.16")
+        //另外一种形式 (group + name + version) compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.16'
+    }
 }
 
-group = 'com.penguins.cloud'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+//设定子模块项目中的配置
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    //spring boot 插件
+    apply plugin: 'org.springframework.boot'
+    //A Gradle plugin that provides Maven-like dependency management functionality
+    apply plugin: 'io.spring.dependency-management'
 
-repositories {
-    mavenCentral()
+    dependencies {
+        compile ('org.springframework.boot:spring-boot-starter-web')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+    dependencyManagement {
+        imports {
+            //spring bom helps us to declare dependencies without specifying version numbers.
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+    jar {
+        manifest.attributes provider: 'gradle'
+    }
 }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//声明gradle脚本自身需要使用的资源
+buildscript {
+    //repositories为什么要要声明两次
+    //buildscript中的声明是gradle脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven仓库地址等。
+    //而在build.gradle文件中直接声明的依赖项、仓库地址等信息是项目自身需要的资源。
+    repositories {
+        mavenLocal()
+        maven {
+            url "http://maven.aliyun.com/nexus/content/groups/public/"
+        }
+        mavenCentral()
+    }
+
+    ext {
+        //这里管理版本
+        springbootVersion = '2.4.2'
+        springCloudVersion = '2020.0.0'
+    }
+
+    dependencies {
+        //spring-boot插件
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springbootVersion")
+    }
+
+
 }
 
-test {
-    useJUnitPlatform()
-}
+
+
+//plugins {
+//    id 'org.springframework.boot' version '2.4.2'
+//    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+//    id 'java'
+//}
+//
+//group = 'com.penguins.cloud'
+//version = '0.0.1-SNAPSHOT'
+//
+//repositories {
+//    mavenLocal()
+//    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+//    mavenCentral()
+//}
+
+//dependencies {
+//    implementation 'org.springframework.boot:spring-boot-starter'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//}
+//
+//test {
+//    useJUnitPlatform()
+//}
+
+//subprojects{
+//    apply plugin:'java'
+//    apply plugin:'idea'
+//    apply plugin:'eclipse'
+//    apply plugin:'jacoco'
+//    apply plugin:'org.springframework.boot'
+//    apply plugin:'io.spring.dependency-management'
+//
+//    group ='com.penguins.cloud'
+//
+//    sourceCompatibility =1.8
+//    targetCompatibility =1.8
+//
+//// java编译的时候缺省状态下会因为中文字符而失败
+//    [compileJava,compileTestJava,javadoc]*.options*.encoding ='UTF-8'
+//
+//    bootJar {
+//        // 是否需要打成可执行jar包
+//        enabled = true
+//    }
+//
+//    repositories {
+//        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+//        mavenCentral()
+//        maven { url'https://repo.spring.io/milestone' }
+//
+//    }
+//
+//    dependencies {
+//        testCompile('org.springframework.boot:spring-boot-starter-test')
+//    }
+//}
+
