@@ -2,6 +2,8 @@ server:
   port: 11011
 
 spring:
+  profiles:
+    active: dev
   application:
     name: cloud-penguins-auth
   datasource:
@@ -13,6 +15,12 @@ spring:
     hikari:
       maximum-pool-size: 20
       minimum-idle: 5
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
 
 mybatis:
   configuration:

@@ -16,6 +16,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import javax.sql.DataSource;
 
 /**
+ * 认证服务端配置
  * @author zhengbing
  * @date 2021/1/20
  * @email mydreambing@126.com
