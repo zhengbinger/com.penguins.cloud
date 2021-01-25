@@ -1,15 +1,12 @@
-plugins {
-    id 'java'
-}
-
 group 'com.penguins.cloud'
 version '0.0.1-SNAPSHOT'
 
-repositories {
-    mavenCentral()
-}
 
 dependencies {
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
