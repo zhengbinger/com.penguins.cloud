@@ -2,3 +2,5 @@ rootProject.name = 'cloud-penguins'
 include 'cloud-penguins-commons'
 include 'cloud-penguins-auth'
 include 'cloud-penguins-gateway'
+include 'cloud-penguins-workflow'
+
