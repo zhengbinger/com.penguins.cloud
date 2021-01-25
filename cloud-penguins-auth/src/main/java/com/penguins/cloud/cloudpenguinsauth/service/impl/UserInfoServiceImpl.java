@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
+ * 用户基本信息服务接口实现
+ * 
  * @author zhengbing
  * @date 2021/1/20
  * @email mydreambing@126.com

@@ -3,6 +3,8 @@ package com.penguins.cloud.cloudpenguinsauth.service;
 import com.penguins.cloud.cloudpenguinsauth.entity.UserInfo;
 
 /**
+ * 用户服务接口
+ *
  * @author zhengbing
  * @date 2021/1/20
  * @email mydreambing@126.com
