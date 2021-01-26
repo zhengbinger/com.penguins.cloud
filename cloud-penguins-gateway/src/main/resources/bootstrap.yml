@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: cloud-penguins-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_HOST:lcoalhost:8848}
+        namespace: penguinss
+      config:
+        server-addr: ${NACOS_HOST:lcoalhost:8848}
+        namespace: penguins
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -7,15 +7,12 @@ dependencies {
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
     implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter:7.14.0'
+    implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
-
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-devtools'
 
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
     runtimeOnly 'mysql:mysql-connector-java'
-//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
