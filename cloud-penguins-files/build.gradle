@@ -1,0 +1,9 @@
+group 'com.penguins.cloud'
+version '0.0.1-SNAPSHOT'
+
+
+dependencies {
+
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+}

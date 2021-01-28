@@ -3,4 +3,5 @@ include 'cloud-penguins-commons'
 include 'cloud-penguins-auth'
 include 'cloud-penguins-gateway'
 include 'cloud-penguins-workflow'
+include 'cloud-penguins-files'
 

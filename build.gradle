@@ -83,6 +83,5 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springbootVersion")
     }
 
-
 }
 

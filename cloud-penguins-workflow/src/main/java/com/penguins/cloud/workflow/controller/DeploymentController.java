@@ -4,6 +4,7 @@ import org.camunda.bpm.engine.RepositoryService;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.repository.Deployment;
+import org.camunda.bpm.engine.repository.ProcessDefinition;
 import org.camunda.bpm.engine.repository.ProcessDefinitionQuery;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.slf4j.Logger;
@@ -79,21 +80,24 @@ public class DeploymentController {
 
     /**
      * 完成一个任务 -  带参数
+     *
      * @param taskId - 任务ID
      * @return string
      */
     @GetMapping("complite/param/{taskId}")
-    public String comTask2(@PathVariable String taskId){
-        Map<String,Object> param = new HashMap<>();
-        param.put("ts",8);
-        taskService.complete(taskId,param);
+    public String comTask2(@PathVariable String taskId) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("ts", 8);
+        taskService.complete(taskId, param);
         return param.toString();
     }
 
-    @GetMapping("/")
-    public String hello() {
-        String hello = "hello  camunda";
-        log.info(hello);
-        return hello;
+    @GetMapping("/{proDefKey}")
+    public String hello(@PathVariable String proDefKey) {
+        ProcessDefinition definition = repositoryService.createProcessDefinitionQuery()
+                .processDefinitionKey(proDefKey).singleResult();
+
+        log.info(definition.getId());
+        return definition.getId();
     }
 }
