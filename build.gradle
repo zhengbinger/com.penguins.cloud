@@ -1,5 +1,5 @@
 allprojects {
-    //创建项目时的你填写
+    //创建项目时填写
     group 'com.penguins.cloud'
     version '0.0.1-SNAPSHOT'
 
@@ -27,7 +27,7 @@ allprojects {
     dependencies {
 //        testCompile("junit:junit:$junitVersion")
 //        compile("org.slf4j:slf4j-api:$slf4jVersion")
-        //也可直接将版本写在最后 compile("org.slf4j:slf4j-api:1.7.16")
+        compile("org.slf4j:slf4j-api:1.7.16")
         //另外一种形式 (group + name + version) compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.16'
     }
 }

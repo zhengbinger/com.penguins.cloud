@@ -7,6 +7,8 @@ mainClassName = "com.penguins.CloudPenguinsAuthApplication"
 
 //service项目所需依赖
 dependencies {
+
+    implementation 'org.projectlombok:lombok:1.18.16'
     implementation project(':cloud-penguins-commons')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'

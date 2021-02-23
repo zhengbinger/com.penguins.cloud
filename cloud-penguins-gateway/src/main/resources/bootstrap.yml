@@ -9,9 +9,17 @@ spring:
       config:
         server-addr: ${NACOS_HOST:lcoalhost:8848}
         namespace: penguins
+#    gateway:
+#      routes:
+#        - id: baidu
+#          uri: https://www.baidu.com
+#          predicates:
+#            -Path=/baidu
+
 
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+

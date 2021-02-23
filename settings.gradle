@@ -1,4 +1,4 @@
-rootProject.name = 'cloud-penguins'
+rootProject.name = 'com.penguins.cloud'
 include 'cloud-penguins-commons'
 include 'cloud-penguins-auth'
 include 'cloud-penguins-gateway'

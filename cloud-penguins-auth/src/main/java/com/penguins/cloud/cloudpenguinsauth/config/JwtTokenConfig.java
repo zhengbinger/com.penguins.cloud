@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 /**
  * JWT TOKEN 配置
+ *
  * @author zhengbing
  * @date 2021/1/20
  * @email mydreambing@126.com
