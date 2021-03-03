@@ -14,4 +14,7 @@ public interface UserInfoMapper {
 
     @Select("select id,username,password from  penguins_user where username=#{username}")
     UserInfo getUserByUsername(String username);
+
+    @Select("select role_id from penguins_user_role where user_id = (select id from penguins_user where  username=#{username})")
+    long getRoleIdByUserName(String username);
 }

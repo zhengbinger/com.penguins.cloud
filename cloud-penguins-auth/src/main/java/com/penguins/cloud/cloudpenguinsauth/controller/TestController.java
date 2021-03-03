@@ -4,7 +4,11 @@ import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.PropertyKeyConst;
 import com.alibaba.nacos.api.config.ConfigService;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,16 +52,16 @@ public class TestController {
     }
 
     /**
-     * * 使用NacosFactory 从nacos配置中心获取城市编码列表
-     * * @return
+     * 使用NacosFactory从nacos配置中心获取配置信息
+     *
+     * @return String
      */
-
     @SneakyThrows
     @GetMapping("getConfig")
     public String getCityCodeListByNacosFactory() throws Exception {
         Properties properties = new Properties();
         // nacos服务器地址，127.0.0.1:8848
-        properties.put(PropertyKeyConst.SERVER_ADDR, SERVER_ADDR);
+        properties.put(PropertyKeyConst.SERVER_ADDR, serverAddr);
         // 配置中心的命名空间id
         properties.put(PropertyKeyConst.NAMESPACE, "dev");
         ConfigService configService = NacosFactory.createConfigService(properties);
@@ -68,5 +72,19 @@ public class TestController {
         System.out.println(map);
         return content;
 
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("auth")
+    public String test() {
+        return "test";
+    }
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @GetMapping("pass/{password}")
+    public String test2(String password) {
+        return new BCryptPasswordEncoder().encode(123456 + "");
     }
 }

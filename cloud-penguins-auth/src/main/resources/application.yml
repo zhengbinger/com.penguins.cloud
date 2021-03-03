@@ -19,8 +19,12 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+        namespace: penguins
       config:
         server-addr: localhost:8848
+  redis:
+    host: localhost
+    port: 6679
 
 mybatis:
   configuration:

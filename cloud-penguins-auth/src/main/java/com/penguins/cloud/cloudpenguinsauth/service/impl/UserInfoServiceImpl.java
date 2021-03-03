@@ -23,4 +23,9 @@ public class UserInfoServiceImpl implements UserInfoService {
     public UserInfo getUserInfoByUsername(String username) {
         return userInfoMapper.getUserByUsername(username);
     }
+
+    @Override
+    public long getRoleIdByUserName(String username) {
+        return userInfoMapper.getRoleIdByUserName(username);
+    }
 }

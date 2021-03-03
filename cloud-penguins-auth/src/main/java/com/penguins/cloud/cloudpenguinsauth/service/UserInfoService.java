@@ -13,8 +13,17 @@ public interface UserInfoService {
 
     /**
      * 根据用户名查询用户信息
+     *
      * @param username 用户名
      * @return UserInfo
      */
-     UserInfo getUserInfoByUsername(String username) ;
+    UserInfo getUserInfoByUsername(String username);
+
+    /**
+     * 根据用户名查询角色ID
+     *
+     * @param username 用户名
+     * @return long 角色ID
+     */
+    long getRoleIdByUserName(String username);
 }
