@@ -38,12 +38,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http
             .formLogin()// 使用默认的表单登录
-            .defaultSuccessUrl("/test/getConfig")
-            .permitAll()
+            .defaultSuccessUrl("/test/getConfig").permitAll()
             .and()
             .authorizeRequests()
-            .anyRequest() // 捕获所有路径
-            .authenticated();
+            .anyRequest().authenticated();
   }
 
   @Override
