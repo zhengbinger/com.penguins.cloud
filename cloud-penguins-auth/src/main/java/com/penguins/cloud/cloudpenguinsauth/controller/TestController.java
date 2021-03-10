@@ -28,8 +28,6 @@ public class TestController {
     @Value("${spring.cloud.nacos.config.server-addr}")
     private String serverAddr;
 
-    public static final String SERVER_ADDR = "127.0.0.1:8848";
-    public static final String TEST_NAMESPACE = "5f86c5a7-3bf1-4108-966f-c25ebebf7803";
 
     /**
      * 使用nacos的OPEN API 读取配置中心的配置
@@ -87,4 +85,5 @@ public class TestController {
     public String test2(String password) {
         return new BCryptPasswordEncoder().encode(123456 + "");
     }
+
 }

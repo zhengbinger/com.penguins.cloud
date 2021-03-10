@@ -24,7 +24,7 @@ spring:
         server-addr: localhost:8848
   redis:
     host: localhost
-    port: 6679
+    port: 6379
 
 mybatis:
   configuration:

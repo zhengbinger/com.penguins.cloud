@@ -12,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
+ * 网页安全认证配置 Config
+ *
  * @author zhengbing
  * @date 2021/1/20
  * @email mydreambing@126.com

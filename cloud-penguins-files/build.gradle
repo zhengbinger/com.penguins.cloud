@@ -1,6 +1,8 @@
-group 'com.penguins.cloud'
-version '0.0.1-SNAPSHOT'
-
+apply plugin: 'application'
+//声明spring-boot插件
+apply plugin: "org.springframework.boot"
+//启动项
+mainClassName = "com.penguins.CloudPenguinsFilesApplication"
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'

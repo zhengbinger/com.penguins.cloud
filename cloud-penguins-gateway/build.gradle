@@ -1,9 +1,12 @@
+apply plugin: 'application'
+//声明spring-boot插件
+apply plugin: "org.springframework.boot"
+//启动项
+mainClassName = "com.penguins.CloudPenguinsGatewayApplication"
 
 dependencies {
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
     implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
-
-
 }

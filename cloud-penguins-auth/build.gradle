@@ -1,7 +1,5 @@
 
 apply plugin:'application'
-//声明spring-boot插件
-apply plugin: "org.springframework.boot"
 //启动项
 mainClassName = "com.penguins.CloudPenguinsAuthApplication"
 
@@ -15,8 +13,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
+    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
     runtimeOnly 'mysql:mysql-connector-java'
