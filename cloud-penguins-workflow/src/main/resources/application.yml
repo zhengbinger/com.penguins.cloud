@@ -1,16 +1,10 @@
-server:
-  port: 10300
-
 spring:
   application:
     name: cloud-penguins-workflow
-  profiles:
-    active: dev
   cloud:
     nacos:
       discovery:
-        server-addr: { NACOS_HOST:localhost:8848 }
-        namespace: penguins
+        server-addr: { NACOS_HOST: localhost:8848 }
   datasource:
     #    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/penguins_workflow?nullCatalogMeansCurrent=true&autoReconnect=true&serverTimezone=Asia/Shanghai
@@ -20,4 +14,3 @@ spring:
     hikari:
       maximum-pool-size: 20
       minimum-idle: 5
-

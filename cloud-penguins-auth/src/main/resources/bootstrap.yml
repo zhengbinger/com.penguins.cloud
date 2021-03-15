@@ -1,6 +1,6 @@
 spring:
   application:
-    name: cloud-penguins-gateway
+    name: cloud-penguins-auth
   cloud:
     nacos:
       discovery:
@@ -16,11 +16,3 @@ spring:
           dataId: mysql.yml
           group: penguins
           refresh: true
-  devtools:
-    add-properties: false
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'

@@ -6,6 +6,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
     implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter:7.14.0'
     implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.14.0'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
