@@ -8,6 +8,8 @@ implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
 
 ## 添加配置
 
+### 默认路由配置
+
 ```yaml
 spring:
   cloud:
@@ -22,6 +24,15 @@ spring:
     httpclient:
       response-timeout: 5000
       connect-timeout: 5000
+```
+
+### 默认路由调试
+
+<http://localhost:801/cloud-penguins-auth/test/getConfig>
+
+### 自定义路由配置
+
+```yaml
     routes:
       - id: auth
         uri: http://localhost:11011 # 请求要转发到的地址
@@ -32,6 +43,6 @@ spring:
           - StripPrefix=1 # 转发之前去掉1层路径
 ```
 
-### 基本调试
+### 自定义路由调试
 
 <http://localhost:801/auth/test/getConfig>

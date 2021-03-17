@@ -4,10 +4,12 @@ import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.PropertyKeyConst;
 import com.alibaba.nacos.api.config.ConfigService;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
 import java.util.Properties;
@@ -24,24 +26,27 @@ public class TestController {
     @Value("${spring.datasource.url}")
     private String url;
 
+    @Autowired
+    private RestTemplate restTemplate;
 
     /**
      * 使用nacos的OPEN API 读取配置中心的配置
      *
      * @return
      */
-    @GetMapping("getCityCodeListByNacosOpenAPI")
+    @GetMapping("getSystem")
     public String getCityCodeListByNacosOpenAPI() {
 //        Map<String, Object> paramMap = new HashMap<>(3);
 //        // 租户信息，对应nacos命名空间id字段
-//        paramMap.put("tenant", TEST_NAMESPACE);
+////        paramMap.put("tenant", "dev");
 //        // dataId
-//        paramMap.put(Constants.DATAID, "CityCodeList");
+//        paramMap.put(Constants.DATAID, "iap-system-provider.yml");
 //        // group
-//        paramMap.put(Constants.GROUP, "DEFAULT_GROUP");
-//        // url: http://127.0.0.1:8848/nacos/v1/cs/configs
-//        String content = HttpUtil.get(SERVER_ADDR + "/nacos" + Constants.CONFIG_CONTROLLER_PATH, paramMap);
-        // 因为我的配置内容是JSON数组字符串，这里将字符串转为JSON数组
+//        paramMap.put(Constants.GROUP, "iap");
+//        // url:
+//        String content = restTemplate.getForObject("http://127.0.0.1:8848" + Constants.CONFIG_CONTROLLER_PATH, String.class, paramMap);
+//        // 因为配置内容是JSON数组字符串，这里将字符串转为JSON数组
+//        return content;
         return null;
     }
 
