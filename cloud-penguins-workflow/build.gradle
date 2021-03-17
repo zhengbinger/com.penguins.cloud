@@ -3,7 +3,7 @@ version '0.0.1-SNAPSHOT'
 
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation project(':cloud-penguins-commons')
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'

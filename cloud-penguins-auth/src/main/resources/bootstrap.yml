@@ -16,3 +16,7 @@ spring:
           dataId: mysql.yml
           group: penguins
           refresh: true
+  security:
+    user:
+      name: admin
+      password: admin

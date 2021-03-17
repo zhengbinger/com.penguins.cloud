@@ -42,6 +42,7 @@ subprojects {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation 'org.springframework.boot:spring-boot-devtools'
+        implementation 'org.springframework.boot:spring-boot-maven-plugin:2.4.3'
         testCompile('org.springframework.boot:spring-boot-starter-test')
     }
     dependencyManagement {

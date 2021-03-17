@@ -16,8 +16,18 @@ spring:
           dataId: mysql.yml
           group: penguins
           refresh: true
-  devtools:
-    add-properties: false
+
+    gateway:
+      discovery:
+        locator:
+          # 表示将请求路径的服务名配置改成小写,因为服务注册的时候，向注册中心注册时将服务名转成大写的了
+          lowerCaseServiceId: true
+          # 表示gateway开启服务注册和发现功能,
+          # 并且spring cloud gateway 自动根据服务发现为每一个服务创建了一个router，这个router将以服务名开头的请求路径转发到对应的服务
+          enabled: true
+      httpclient:
+        response-timeout: 5000
+        connect-timeout: 5000
 
 management:
   endpoints:
