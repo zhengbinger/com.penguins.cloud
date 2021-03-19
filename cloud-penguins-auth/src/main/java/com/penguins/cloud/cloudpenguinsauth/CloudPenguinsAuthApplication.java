@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * @author zhengbing
+ */
 @MapperScan({"com.penguins.cloud.cloudpenguinsauth.repository"})
 @SpringBootApplication
 @EnableDiscoveryClient

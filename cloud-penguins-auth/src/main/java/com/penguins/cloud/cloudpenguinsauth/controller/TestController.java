@@ -3,7 +3,6 @@ package com.penguins.cloud.cloudpenguinsauth.controller;
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.PropertyKeyConst;
 import com.alibaba.nacos.api.config.ConfigService;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +36,7 @@ public class TestController {
     @GetMapping("getSystem")
     public String getCityCodeListByNacosOpenAPI() {
 //        Map<String, Object> paramMap = new HashMap<>(3);
-//        // 租户信息，对应nacos命名空间id字段
+        // 租户信息，对应nacos命名空间id字段
 ////        paramMap.put("tenant", "dev");
 //        // dataId
 //        paramMap.put(Constants.DATAID, "iap-system-provider.yml");
@@ -55,7 +54,6 @@ public class TestController {
      *
      * @return String
      */
-    @SneakyThrows
     @GetMapping("getConfig")
     public String getCityCodeListByNacosFactory() throws Exception {
         Properties properties = new Properties();

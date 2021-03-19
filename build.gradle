@@ -47,7 +47,7 @@ subprojects {
     }
     dependencyManagement {
         imports {
-            //spring bom helps us to declare dependencies without specifying version numbers.
+            // spring bom helps us to declare dependencies without specifying version numbers.
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
             mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${alibabaCloudVersion}"
         }
@@ -59,9 +59,9 @@ subprojects {
 
 //声明gradle脚本自身需要使用的资源
 buildscript {
-    //repositories为什么要要声明两次
-    //buildscript中的声明是gradle脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven仓库地址等。
-    //而在build.gradle文件中直接声明的依赖项、仓库地址等信息是项目自身需要的资源。
+    // repositories 为什么要要声明两次
+    // buildscript 中的声明是 gradle 脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven 仓库地址等。
+    // 而在 build.gradle 文件中直接声明的依赖项、仓库地址等信息是项目自身需要的资源。
     repositories {
         mavenLocal()
         maven {
@@ -71,14 +71,14 @@ buildscript {
     }
 
     ext {
-        //这里管理版本
+        // 这里管理版本
         springbootVersion = '2.4.2'
         springCloudVersion = '2020.0.0'
         alibabaCloudVersion = '2.2.5.RELEASE'
     }
 
     dependencies {
-        //spring-boot插件
+        // spring-boot 插件
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springbootVersion")
     }
 
