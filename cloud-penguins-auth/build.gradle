@@ -8,7 +8,7 @@ dependencies {
 
     implementation project(':cloud-penguins-commons')
 //    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
     implementation 'org.springframework.boot:spring-boot-starter-security'

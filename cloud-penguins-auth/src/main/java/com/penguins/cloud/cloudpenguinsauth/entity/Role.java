@@ -2,6 +2,8 @@ package com.penguins.cloud.cloudpenguinsauth.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import java.util.Objects;
+
 /**
  * @author zhengbing
  * @date 2021/3/3 11:23
@@ -13,6 +15,7 @@ public class Role implements GrantedAuthority {
     private long id;
     private String role_code;
     private String role_name;
+
 
     public long getId() {
         return id;
@@ -43,5 +46,20 @@ public class Role implements GrantedAuthority {
         return this.role_name;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Role role = (Role) o;
+        return id == role.id && Objects.equals(role_code, role.role_code) && Objects.equals(role_name, role.role_name);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, role_code, role_name);
+    }
 }

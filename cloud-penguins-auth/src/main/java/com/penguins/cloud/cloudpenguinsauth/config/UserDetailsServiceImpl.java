@@ -22,9 +22,9 @@ import java.util.Collections;
  * @email mydreambing@126.com
  */
 @Component
-public class UserDetailServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
-    Log log = LogFactory.getLog(UserDetailServiceImpl.class);
+    private final Log log = LogFactory.getLog(UserDetailsServiceImpl.class);
 
     @Autowired
     private UserService userService;
@@ -41,7 +41,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
         }
         Role role = roleServices.getById(userService.getRoleIdByUserName(username));
 
-        return new org.springframework.security.core.userdetails.User(
-                username, userInfo.getPassword(), Collections.singleton(role));
+        return new UserInfo(username, userInfo.getPassword(), Collections.singleton(role));
     }
 }

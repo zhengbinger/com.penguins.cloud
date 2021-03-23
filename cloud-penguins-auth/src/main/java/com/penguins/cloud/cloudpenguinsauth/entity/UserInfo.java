@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Set;
 
 /**
  * 用户基本信息
@@ -15,10 +16,17 @@ import java.util.Collection;
 public class UserInfo implements UserDetails {
 
     private static final long serialVersionUID = 8587384110671427811L;
-    
+
     private long id;
     private String username;
     private String password;
+    private Set<Role> roles;
+
+    public UserInfo(String username, String password, Set<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
 
     public void setId(long id) {
         this.id = id;
