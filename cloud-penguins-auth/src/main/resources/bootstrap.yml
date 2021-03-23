@@ -17,10 +17,10 @@ spring:
           group: penguins
           refresh: true
 
-  security:
-    user:
-      name: admin
-      password: admin
+  #  security:
+  #    user:
+  #      name: admin
+  #      password: admin
 
   devtools:
     restart:
