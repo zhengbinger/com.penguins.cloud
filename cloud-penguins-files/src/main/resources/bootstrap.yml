@@ -4,8 +4,15 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: { NACOS_HOST: localhost:8848 }
+        server-addr: ${NACOS_HOST:localhost:8848}
         namespace: penguins
+        group: penguins
       config:
-        server-addr: { NACOS_HOST: localhost:8848 }
+        server-addr: ${NACOS_HOST:localhost:8848}
+        group: penguins
+        file-extension: yml
         namespace: penguins
+
+  devtools:
+    restart:
+      enabled: false

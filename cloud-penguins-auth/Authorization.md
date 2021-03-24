@@ -1,0 +1,25 @@
+授权服务器配置类 需要使用 @EnableAuthorizationServer 注解并集成 AuthorizationServerConfigurerAdapter 来配置 OAuth2.0 授权服务器
+AuthorizationServerConfigurerAdapter 要求配置以下几个类，这几个类是由Spring创建的独立配置对象，他们会被Spring传入 AuthorizationServerConfigurer 进行配置
+
+ClientDetailsServiceConfigurer: 用来配置客户端详情服务（ClientDetailService）,客户端详情信息在这里进行初始化，你可以把客户端详情信息写死在这里或者通过数据库来配置，我们这边写死在这里就好了
+AuthorizationServerEndpointsConfigurer: 用来配置令牌（token）的访问断电和令牌服务（token services） AuthorizationServerSecurityConfigurer:
+用来配置令牌端点的安全约束
+
+配置客户端详细信息 ClientDetailsServiceConfigurer 负责查找 ClientDetails，而ClientDetails 有几个重要属性如表：
+
+属性名 作用 clientId 必须的 用来标识客户端的id secret 需要值得信任的客户端 ， 客户端安全码，如果有的话 scope 用来限制客户端的访问范围，如果为空（默认），那么客户端拥有全部的访问范围
+authorizedGrantTypes 由此客户端可以使用的授权类型，默认为空 authorities 此客户端可以使用的权限（基于SpringSecurity authorities） 客户端详情（client
+details）能够在应用程序运行的时候进行更新，可以通过访问底层的存储服务，例如将客户端向高清存储在一个关系数据库的表中，你就可以使用jdbcClientDetailsService 或者通过自己实现
+ClientDetailsService 来进行管理
+
+管理令牌 AuthorizatonServerTokenService 接口定义了一些操作使你可以进行一些必要的管理，令牌可以被用来加载身份信息。
+
+InMemoryTokenStore: 这个版本是被默认采用的。 我们的授权认证也是基于这个 JdbcTokenStore: 这是一个基于JDBC的版本，看名字也知道，使用的时候需要 引入依赖spring-jdbc
+JwtTokenStore: 这个版本全程是 JSON Web Token (Jwt)
+他可以吧令牌相关的数据进行编码，因此对于后台来说，他不需要进行存储，这是一个优势，但是他也有一个缺点，那就是撤销一个已经授权的令牌将会非常困难，所以它通常用来处理一个生命周期比较短的令牌以及撤销刷新令牌(refresh_token)
+。另一个缺点就是这个令牌占用的空间比较大，如果你加入了比较多的用户凭证信息，Jwt不会保存任何数据。 我们这边选择内存方式。
+
+配置授权类型（Grant Types） AuthorizationServerEndpointsConfigurer 通过设定以下属性支持的授权类型（GrantTypes） authenticationManager:
+认证管理器，当你选择了资源所有者密码(password)授权类型的时候，请设置这个属性注入一个AuthenticationManager对象 userDetailsService
+如果你设置这个属性的话，说明你有一个自己的UserDetailsService接口的实现。 authorizationCodeServices： 这个属性是用来设置授权码服务的，主要用于authorization_code授权码类型模式
+implicatGrantService: 设置隐式授权模式，用来管理隐式授权模式的状态 toeknGranter 授权将会交给你自己来完全掌控 
