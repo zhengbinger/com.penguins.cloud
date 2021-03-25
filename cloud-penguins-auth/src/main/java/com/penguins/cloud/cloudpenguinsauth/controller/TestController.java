@@ -1,5 +1,7 @@
 package com.penguins.cloud.cloudpenguinsauth.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +17,9 @@ import java.util.UUID;
 @RestController
 public class TestController {
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @GetMapping("test")
     public String test() {
         return UUID.randomUUID().toString();
@@ -28,5 +33,10 @@ public class TestController {
     @GetMapping("success")
     public String success() {
         return "success";
+    }
+
+    @GetMapping("encode")
+    public String encode(String password) {
+        return passwordEncoder.encode(password);
     }
 }

@@ -22,6 +22,9 @@ public class UserInfo implements UserDetails {
     private String password;
     private Set<Role> roles;
 
+    public UserInfo() {
+    }
+
     public UserInfo(String username, String password, Set<Role> roles) {
         this.username = username;
         this.password = password;
@@ -45,33 +48,33 @@ public class UserInfo implements UserDetails {
         return username;
     }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
     }
 
     @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     @Override

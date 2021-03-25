@@ -3,6 +3,7 @@ package com.penguins.cloud.cloudpenguinsauth.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -34,8 +35,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
 //        return new NoEnPasswordEncoder();
         return new BCryptPasswordEncoder();
+
     }
 
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Override
+    protected UserDetailsService userDetailsService() {
+        return userDetailService;
+    }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -63,7 +75,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .passwordEncoder(passwordEncoder())
 //                .withUser("admin").password("admin123").authorities("USER");
         auth.userDetailsService(userDetailsService());
-//        super.configure(auth);
     }
 
     /**
@@ -84,22 +95,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .formLogin()
-                .loginProcessingUrl("/test")
-                .permitAll()
-                .and()
+//        http
+//                .formLogin().defaultSuccessUrl("/login")
+//                .permitAll()
+//                .and()
+//                .authorizeRequests()
+//                .anyRequest() // 捕获所有路径
+//                .authenticated();
+
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/test")
-                .permitAll()
-                .anyRequest() // 捕获所有路径
-                .authenticated();
+                .antMatchers("/login*").permitAll()
+//                .antMatchers("/oauth/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().defaultSuccessUrl("/success");
 
     }
 
-
-    @Override
-    protected UserDetailsService userDetailsService() {
-        return userDetailService;
-    }
 }
