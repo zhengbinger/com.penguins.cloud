@@ -10,10 +10,10 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
+ * Security Web 配置
+ *
  * @author zhengbing
  * @date 2021/3/23 09:25
  * @email mydreambing@126.com
@@ -29,15 +29,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * 设置密码验证器
      * NoOpPasswordEncoder  不进行加密
      *
-     * @return
+     * @return PasswordEncoder
      */
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-//        return new NoEnPasswordEncoder();
-        return new BCryptPasswordEncoder();
-
-    }
-
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+////        return new NoEnPasswordEncoder();
+//        return new BCryptPasswordEncoder();
+//
+//    }
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {

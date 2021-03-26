@@ -15,8 +15,7 @@ import java.util.Set;
  */
 public class UserInfo implements UserDetails {
 
-    private static final long serialVersionUID = 8587384110671427811L;
-
+    private static final long serialVersionUID = 5067650900856022601L;
     private long id;
     private String username;
     private String password;

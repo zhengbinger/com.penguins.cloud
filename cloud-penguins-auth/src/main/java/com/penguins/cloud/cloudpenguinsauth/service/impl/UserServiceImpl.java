@@ -1,7 +1,7 @@
 package com.penguins.cloud.cloudpenguinsauth.service.impl;
 
 import com.penguins.cloud.cloudpenguinsauth.entity.UserInfo;
-import com.penguins.cloud.cloudpenguinsauth.repository.UserRepository;
+import com.penguins.cloud.cloudpenguinsauth.repository.UserInfoRepository;
 import com.penguins.cloud.cloudpenguinsauth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserInfoRepository userRepository;
 
     @Override
     public UserInfo getUserInfoByUsername(String username) {
