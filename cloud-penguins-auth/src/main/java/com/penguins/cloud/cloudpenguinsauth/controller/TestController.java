@@ -1,9 +1,9 @@
 package com.penguins.cloud.cloudpenguinsauth.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.UUID;
 
 /**
  * 测试 Controller
@@ -18,10 +18,10 @@ public class TestController {
 //    @Autowired
 //    private PasswordEncoder passwordEncoder;
 
-    @GetMapping("test")
-    public String test() {
-        return UUID.randomUUID().toString();
-    }
+//    @GetMapping("test")
+//    public String test() {
+//        return UUID.randomUUID().toString();
+//    }
 
     @GetMapping("fail")
     public String fail() {
@@ -37,5 +37,13 @@ public class TestController {
     public String encode(String password) {
 //        return passwordEncoder.encode(password);
         return "";
+    }
+
+    @GetMapping("/foo/test")
+    public String test() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        System.out.println("current authentication: 【 {} 】" + authentication);
+        return "success";
     }
 }
