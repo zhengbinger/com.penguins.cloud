@@ -16,23 +16,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/r")
 public class TestController {
 
-    /**
-     * 拥有p1权限方可放温暖
-     *
-     * @return String
-     */
-    @GetMapping(value = "/r1")
-    @PreAuthorize("hasAnyAuthority('p1')")
-    public String r1() {
-        return "访问资源1";
-    }
+  /**
+   * 拥有p1权限方可访问
+   *
+   * @return String
+   */
+  @GetMapping(value = "/r1")
+  @PreAuthorize("hasAnyAuthority('p1')")
+  public String r1() {
+    return "访问资源1";
+  }
 
-    /**
-     * 拥有p2权限方可访问
-     */
-    @GetMapping(value = "/r2")
-    @PreAuthorize("hasAnyAuthority('p2')")
-    public String r2() {
-        return "访问资源2";
-    }
+  /** 拥有p2权限方可访问 */
+  @GetMapping(value = "/r2")
+  @PreAuthorize("hasAnyAuthority('p2')")
+  public String r2() {
+    return "访问资源2";
+  }
 }

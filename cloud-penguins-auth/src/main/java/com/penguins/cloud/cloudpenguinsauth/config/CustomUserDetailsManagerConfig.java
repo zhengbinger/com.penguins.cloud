@@ -23,56 +23,52 @@ import org.springframework.security.provisioning.UserDetailsManager;
 @ConditionalOnMissingBean(UserDetailsService.class)
 public class CustomUserDetailsManagerConfig {
 
-    @Bean
-    public UserDetailsManager userDetailsManager(UserInfoRepository userRepository) {
+  @Bean
+  public UserDetailsManager userDetailsManager(UserInfoRepository userRepository) {
 
-        return new UserDetailsManager() {
-            @Override
-            public void createUser(UserDetails user) {
-                userRepository.insert(user);
-            }
+    return new UserDetailsManager() {
+      @Override
+      public void createUser(UserDetails user) {
+        userRepository.insert(user);
+      }
 
-            @Override
-            public void updateUser(UserDetails user) {
-                userRepository.updateById(user);
-            }
+      @Override
+      public void updateUser(UserDetails user) {
+        userRepository.updateById(user);
+      }
 
-            @Override
-            public void deleteUser(String username) {
-                QueryWrapper wrapper = new QueryWrapper();
-                wrapper.eq("username", username);
-                userRepository.delete(wrapper);
-            }
+      @Override
+      public void deleteUser(String username) {
+        QueryWrapper<UserDetails> wrapper = new QueryWrapper<UserDetails>();
+        wrapper.eq("username", username);
+        userRepository.delete(wrapper);
+      }
 
-            @Override
-            public void changePassword(String oldPassword, String newPassword) {
+      @Override
+      public void changePassword(String oldPassword, String newPassword) {}
 
-            }
+      @Override
+      public boolean userExists(String username) {
+        return false;
+      }
 
-            @Override
-            public boolean userExists(String username) {
-                return false;
-            }
+      @Override
+      public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.getUserByUsername(username);
+      }
+    };
+  }
 
-            @Override
-            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-                return userRepository.getUserByUsername(username);
-            }
-        };
-    }
-
-
-    @ConditionalOnMissingBean(value = UserRepository.class)
-    @Bean
-    public CustomUserDetailsRepository customUserDetailsManager() {
-        CustomUserDetailsRepository customUserDetailsManager = new CustomUserDetailsRepository();
-        UserDetails zhengbing = User.withUsername("zhengbing").password("{noop}12345").authorities(AuthorityUtils.NO_AUTHORITIES).build();
-        customUserDetailsManager.createUser(zhengbing);
-        return customUserDetailsManager;
-    }
+  @ConditionalOnMissingBean(value = UserRepository.class)
+  @Bean
+  public CustomUserDetailsRepository customUserDetailsManager() {
+    CustomUserDetailsRepository customUserDetailsManager = new CustomUserDetailsRepository();
+    UserDetails zhengbing =
+        User.withUsername("zhengbing")
+            .password("{noop}12345")
+            .authorities(AuthorityUtils.NO_AUTHORITIES)
+            .build();
+    customUserDetailsManager.createUser(zhengbing);
+    return customUserDetailsManager;
+  }
 }
-
-
-
-
-

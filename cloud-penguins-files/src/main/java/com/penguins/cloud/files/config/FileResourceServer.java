@@ -21,41 +21,44 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
 @EnableResourceServer
 public class FileResourceServer extends ResourceServerConfigurerAdapter {
 
-    private static final String RESOURCE_ID = "FILE";
+  private static final String RESOURCE_ID = "FILE";
 
-    @Override
-    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        // 资源id
-        resources.resourceId(RESOURCE_ID)
-                // 验证令牌的服务
-                .tokenServices(tokenServices())
-                .stateless(true);
-    }
+  @Override
+  public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+    // 资源id
+    resources
+        .resourceId(RESOURCE_ID)
+        // 验证令牌的服务
+        .tokenServices(tokenServices())
+        .stateless(true);
+  }
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/**").access("#oauth2.hasScope('all')")
-                .and().csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+  @Override
+  public void configure(HttpSecurity http) throws Exception {
+    http.authorizeRequests()
+        .antMatchers("/**")
+        .access("#oauth2.hasScope('all')")
+        .and()
+        .csrf()
+        .disable()
+        .sessionManagement()
+        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        super.configure(http);
-    }
+    super.configure(http);
+  }
 
-    //
-
-    /**
-     * 资源服务令牌解析服务
-     * 使用远程服务请求授权服务器校验的token，必须制定校验token 的url， client_id,client_secret
-     *
-     * @return ResourceServerTokenServices
-     */
-    @Bean
-    public ResourceServerTokenServices tokenServices() {
-        RemoteTokenServices service = new RemoteTokenServices();
-        service.setCheckTokenEndpointUrl("http://localhost:11011/cloud-penguins-auth/oauth/check_token");
-        service.setClientId("c1");
-        service.setClientSecret("secret");
-        return service;
-    }
+  /**
+   * 资源服务令牌解析服务 使用远程服务请求授权服务器校验的token，必须制定校验token 的url， client_id,client_secret
+   *
+   * @return ResourceServerTokenServices
+   */
+  @Bean
+  public ResourceServerTokenServices tokenServices() {
+    RemoteTokenServices service = new RemoteTokenServices();
+    service.setCheckTokenEndpointUrl(
+        "http://localhost:11011/cloud-penguins-auth/oauth/check_token");
+    service.setClientId("c1");
+    service.setClientSecret("secret");
+    return service;
+  }
 }
