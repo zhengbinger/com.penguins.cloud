@@ -38,7 +38,7 @@ public class Producer {
     // 运行 producer 实例
     producer.start();
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 10; i++) {
 
       // 创建一个消息实例 Topic Tag 消息内容
       Message msg =
@@ -72,7 +72,7 @@ public class Producer {
     // 设置发送异步消息失败的情况下重试次数
     producer.setRetryTimesWhenSendAsyncFailed(0);
 
-    int messageCount = 100;
+    int messageCount = 10;
     final CountDownLatch countDownLatch = new CountDownLatch(messageCount);
     for (int i = 0; i < messageCount; i++) {
       // 创建一个消息实例 Topic Tag 消息内容
@@ -116,13 +116,13 @@ public class Producer {
   public void sendOneWayMessage()
       throws MQClientException, MQBrokerException, RemotingException, InterruptedException {
     // 通过一个唯一的生产者组名，实例化一个 DefaultMQProducer
-    DefaultMQProducer producer = new DefaultMQProducer("async_group");
+    DefaultMQProducer producer = new DefaultMQProducer("one_way_group");
     // 配置NameServer 地址端口
     producer.setNamesrvAddr("120.25.218.127:9876");
     // 运行 producer 实例
     producer.start();
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 10; i++) {
       Message msg =
           new Message(
               "one_way_topic",
@@ -138,8 +138,8 @@ public class Producer {
   public static void main(String[] args) {
     try {
       Producer producer = new Producer();
-      producer.sendSyncMessage();
-      producer.sendAsyncMessage();
+      //      producer.sendSyncMessage();
+      //      producer.sendAsyncMessage();
       producer.sendOneWayMessage();
     } catch (MQClientException | MQBrokerException | RemotingException | InterruptedException e) {
       e.printStackTrace();

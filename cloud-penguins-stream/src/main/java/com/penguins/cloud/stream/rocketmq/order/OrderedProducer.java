@@ -1,6 +1,7 @@
 package com.penguins.cloud.stream.rocketmq.order;
 
 import com.penguins.cloud.stream.rocketmq.config.JmsConfig;
+import com.penguins.cloud.stream.rocketmq.config.ProductOrder;
 import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;

@@ -19,9 +19,9 @@ import java.util.List;
  * @date 2021/4/16 16:01
  * @email mydreambing@126.com
  */
-public class Consumer {
+public class Consumer2 {
 
-  private static final Logger log = LoggerFactory.getLogger(Consumer.class);
+  private static final Logger log = LoggerFactory.getLogger(Consumer2.class);
 
   public static void main(String[] args) throws InterruptedException, MQClientException {
 

@@ -1,4 +1,4 @@
-package com.penguins.cloud.stream.rocketmq.order;
+package com.penguins.cloud.stream.rocketmq.config;
 
 /**
  * @author zhengbing
