@@ -26,13 +26,15 @@ public class Consumer {
   public static void main(String[] args) throws InterruptedException, MQClientException {
 
     // Instantiate with specified consumer group name.
-    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("one_way_group");
+    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("simple_consumer_group");
 
     // Specify name server addresses.
     consumer.setNamesrvAddr(JmsConfig.NAME_SRV);
 
     // Subscribe one more more topics to consume.
-    consumer.subscribe("one_way_topic", "*");
+    consumer.subscribe("sync_topic", "*");
+    //    consumer.subscribe("async_topic", "*");
+    //    consumer.subscribe("one_way_topic", "*");
     // Register callback to execute on arrival of messages fetched from brokers.
     consumer.registerMessageListener(
         new MessageListenerConcurrently() {

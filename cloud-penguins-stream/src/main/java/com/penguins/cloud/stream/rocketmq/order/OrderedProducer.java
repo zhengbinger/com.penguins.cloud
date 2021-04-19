@@ -68,7 +68,7 @@ public class OrderedProducer {
               new MessageQueueSelector() {
                 @Override
                 public MessageQueue select(List<MessageQueue> list, Message message, Object arg) {
-                  // 3、arg的值其实就是下面传入 orderId
+                  // 3、arg的值其实就是上面传入 orderId
                   String orderid = (String) arg;
                   // 4、因为订单是String类型，所以通过hashCode转成int类型
                   int hashCode = orderid.hashCode();

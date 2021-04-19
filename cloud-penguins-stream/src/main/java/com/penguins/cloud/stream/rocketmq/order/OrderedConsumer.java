@@ -26,12 +26,15 @@ public class OrderedConsumer {
     consumer = new DefaultMQPushConsumer("ordered_consumer_group");
 
     consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
+    // TODO 这里真的是个坑,我product设置VipChannelEnabled(false)，但消费者并没有设置这个参数，之前发送普通消息的时候也没有问题。能正常消费。
+    // TODO 但在顺序消息时，consumer一直不消费消息了，找了好久都没有找到原因，直到我这里也设置为VipChannelEnabled(false)，竟然才可以消费消息。
     consumer.setNamesrvAddr(JmsConfig.NAME_SRV);
     consumer.setVipChannelEnabled(false);
 
     consumer.subscribe("ordered_topic", "*");
 
     consumer.registerMessageListener(
+        // 注册消费的监听 这里注意顺序消费为MessageListenerOrderly 之前并发为ConsumeConcurrentlyContext
         (MessageListenerOrderly)
             (msgs, context) -> {
               MessageExt msg = msgs.get(0);
