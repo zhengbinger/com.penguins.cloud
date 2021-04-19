@@ -30,4 +30,9 @@ public class ProductOrder {
   public void setType(String type) {
     this.type = type;
   }
+
+  @Override
+  public String toString() {
+    return "ProductOrder{" + "orderId='" + orderId + '\'' + ", type='" + type + '\'' + '}';
+  }
 }

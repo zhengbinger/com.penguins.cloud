@@ -61,7 +61,7 @@ public class OrderedProducer {
           new Message(
               "ordered_topic",
               order.getOrderId(),
-              (order.getType()).getBytes(StandardCharsets.UTF_8));
+              (order.toString()).getBytes(StandardCharsets.UTF_8));
       SendResult sendResult =
           producer.send(
               msg,
