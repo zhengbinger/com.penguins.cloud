@@ -41,7 +41,7 @@ public class Controller {
     // 总共发送五次消息
     for (String s : mesList) {
       // 创建生产信息
-      Message message = new Message(JmsConfig.TOPIC, "testtag", ("小小一家人的称谓:" + s).getBytes());
+      Message message = new Message(JmsConfig.TOPIC, "test_tag", ("小小一家人的称谓:" + s).getBytes());
       // 发送
       SendResult sendResult = producer.getProducer().send(message);
       log.info("输出生产者信息={}", sendResult);

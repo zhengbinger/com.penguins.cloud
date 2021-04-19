@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class Producer {
 
   /**
-   * 可靠同步消息发送
+   * 可靠同步消息发送(默认方式)
    *
    * @throws MQClientException
    * @throws MQBrokerException

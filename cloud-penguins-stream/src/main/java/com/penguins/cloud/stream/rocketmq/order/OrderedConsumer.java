@@ -5,8 +5,12 @@ import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerOrderly;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
+import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageExt;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -16,6 +20,9 @@ import java.util.concurrent.atomic.AtomicLong;
  * @email mydreambing@126.com
  */
 public class OrderedConsumer {
+
+  private static final Logger log = LoggerFactory.getLogger(OrderedConsumer.class);
+
   public static void main(String[] args) throws Exception {
 
     DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("ordered_group");
@@ -34,8 +41,12 @@ public class OrderedConsumer {
           public ConsumeOrderlyStatus consumeMessage(
               List<MessageExt> msgs, ConsumeOrderlyContext context) {
             context.setAutoCommit(false);
-            System.out.printf(
-                Thread.currentThread().getName() + " Receive New Messages: " + msgs + "%n");
+            for (Message msg : msgs) {
+
+              // 消费者获取消息 这里只输出 不做后面逻辑处理
+              String body = new String(msg.getBody(), StandardCharsets.UTF_8);
+              log.info("Consumer-获取消息-主题topic为={},消费消息为={}", msg.getTopic(), body);
+            }
             this.consumeTimes.incrementAndGet();
             if ((this.consumeTimes.get() % 2) == 0) {
               return ConsumeOrderlyStatus.SUCCESS;
