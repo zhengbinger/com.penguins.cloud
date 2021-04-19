@@ -25,7 +25,7 @@ public class OrderedProducer {
    * @throws RemotingException
    * @throws InterruptedException
    */
-  public void sendOneWayMessage()
+  public void sendOrderedMessage()
       throws MQClientException, MQBrokerException, RemotingException, InterruptedException {
     // 通过一个唯一的生产者组名，实例化一个 DefaultMQProducer
     DefaultMQProducer producer = new DefaultMQProducer("ordered_group");
@@ -59,5 +59,10 @@ public class OrderedProducer {
     Thread.sleep(5000);
     // 关闭生产者，当生产者不再被使用时
     producer.shutdown();
+  }
+
+  public static void main(String[] args)
+      throws MQBrokerException, RemotingException, InterruptedException, MQClientException {
+    new OrderedProducer().sendOrderedMessage();
   }
 }
