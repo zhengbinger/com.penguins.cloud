@@ -1,45 +1,58 @@
-allprojects {
+configure(allprojects) { project ->
     //创建项目时填写
     group 'com.penguins.cloud'
     version '0.0.1-SNAPSHOT'
 
+    apply plugin: 'maven'
+
+    ext {
+        camundaVersion = '7.14.0'
+    }
+}
+
+def holderProjects = Arrays.asList('penguins-user-api')
+
+//设定子模块项目中的配置
+configure(subprojects) { subprojects ->
+
+    //此处主要为了过滤容器模块中的插件配置，容器模块的主要用来管理下属部分的模块，无需添加依赖和插件
+//    if (!holderProjects.contains(subproject.name)) {
     apply plugin: 'java'
     apply plugin: 'idea'
 
     //jdk版本
     sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
-    tasks.withType(JavaCompile) {
-        options.encoding = "UTF-8"
-    }
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+//        apply from: "${rootDir}/dependency.gradle"
 
     repositories {
         mavenLocal()
-        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         mavenCentral()
     }
 
-    ext {
-        camundaVersion = '7.14.0'
-    }
+//        dependencies {
+//            implementation libs['commons-lang3']
+//            //lombok
+//            annotationProcessor libs['lombok']
+//            compileOnly libs['lombok']
+//            testAnnotationProcessor libs['lombok']
+//            testCompileOnly libs['lombok']
+//
+//            testImplementation libs['junit']
+//        }
 
-    //项目中所使用到的依赖，这里添加的依赖会被所有项目，包括root项目继承
-    dependencies {
-        compile("org.slf4j:slf4j-api:1.7.16")
-        //另外一种形式 (group + name + version) compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.16'
-    }
-}
-
-//设定子模块项目中的配置
-subprojects {
-    apply plugin: 'java'
-    apply plugin: 'idea'
     //spring boot 插件
     apply plugin: 'org.springframework.boot'
     //A Gradle plugin that provides Maven-like dependency management functionality
     apply plugin: 'io.spring.dependency-management'
-
+    //项目中所使用到的依赖，这里添加的依赖会被所有项目，包括root项目继承
     dependencies {
+        compile("org.slf4j:slf4j-api:1.7.16")
+        //另外一种形式 (group + name + version) compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.16'
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation 'org.springframework.boot:spring-boot-devtools'
         implementation 'org.springframework.boot:spring-boot-maven-plugin:2.4.3'
@@ -81,6 +94,4 @@ buildscript {
         // spring-boot 插件
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springbootVersion")
     }
-
 }
-
