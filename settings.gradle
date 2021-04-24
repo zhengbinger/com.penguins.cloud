@@ -10,7 +10,6 @@ include 'cloud-penguins-workflow'
 include 'cloud-penguins-files'
 include 'cloud-penguins-stream'
 include 'cloud-penguins-message'
-include 'cloud-penguins-user'
 include 'cloud-penguins-user:penguins-user-api'
 include 'cloud-penguins-user:penguins-user-provider'
 

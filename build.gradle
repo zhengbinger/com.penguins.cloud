@@ -26,7 +26,7 @@ configure(subprojects) { subprojects ->
 
     [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
-//        apply from: "${rootDir}/dependency.gradle"
+//    apply from: "${rootDir}/dependency.gradle"
 
     repositories {
         mavenLocal()
@@ -52,6 +52,12 @@ configure(subprojects) { subprojects ->
     //项目中所使用到的依赖，这里添加的依赖会被所有项目，包括root项目继承
     dependencies {
         compile("org.slf4j:slf4j-api:1.7.16")
+
+        //lombok
+//        annotationProcessor libs['lombok']
+//        compileOnly libs['lombok']
+//        testAnnotationProcessor libs['lombok']
+//        testCompileOnly libs['lombok']
         //另外一种形式 (group + name + version) compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.16'
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation 'org.springframework.boot:spring-boot-devtools'

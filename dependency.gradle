@@ -1,15 +1,15 @@
 ext {
     ver = [
             utils  : [
-                    guava               : "26.0-jre",
-                    lombok              : "1.18.2",
-                    common_lang3        : "3.8",
-                    commons_io          : "2.4",
-                    commons_collections4: "4.2",
-                    fastjson            : "1.2.47",
-                    junit               : "4.12",
-                    joda_time           : "2.10",
-                    groovy_all          : "2.4.13"
+                    guava : "26.0-jre",
+                    lombok: "1.18.20"
+//                    common_lang3        : "3.8",
+//                    commons_io          : "2.4",
+//                    commons_collections4: "4.2",
+//                    fastjson            : "1.2.47",
+//                    junit               : "4.12",
+//                    joda_time           : "2.10",
+//                    groovy_all          : "2.4.13"
 
             ],
             swagger: [
@@ -17,36 +17,36 @@ ext {
                     swagger_annotations: "1.5.22"
             ],
             spring : [
-                    boot               : "2.4.2.RELEASE",
-                    spring_version     : "5.4.2.RELEASE",
-                    spring_jdbc_version: "4.3.18.RELEASE"
+                    boot          : "2.4.2.RELEASE",
+                    spring_version: "5.3.6",
+//                    spring_jdbc_version: "4.3.18.RELEASE"
             ],
             cloud  : [
                     spring_cloud_start_alibaba_nacos_config: "2.2.5.RELEASE"
             ],
             nacos  : [
-                    nacos_config_spring_boot_starter: "0.2.1"
+                    nacos_config_spring_boot_starter: "0.2.7"
             ],
             common : [
                     //数据库
-                    postgresql                 : "42.2.5",
-                    mysql                      : '8.0.13',
-                    durid                      : '1.1.14',
+//                    postgresql                 : "42.2.5",
+                    mysql                    : '8.0.13',
+//                    durid                      : '1.1.14',
 
-                    mybatis_plus_boot_starter  : "3.0.6",
-                    mybatis                    : "3.4.6",
-                    mybatis_generator          : "1.3.7",
-                    mapper                     : "4.1.2",
-                    mybatis_spring_boot_starter: "1.3.2",
+                    mybatis_plus_boot_starter: "3.0.6",
+                    mybatis                  : "3.4.6",
+//                    mybatis_generator          : "1.3.7",
+//                    mapper                     : "4.1.2",
+//                    mybatis_spring_boot_starter: "1.3.2",
 
-                    velocity_engine_core       : "2.0",
-                    freemarker                 : "2.3.28",
+//                    velocity_engine_core       : "2.0",
+//                    freemarker                 : "2.3.28",
 
-                    pagehelper                 : "5.1.8",
+//                    pagehelper                 : "5.1.8",
 
                     //日志
-                    slf4j_version              : "1.7.25",
-                    logback_version            : "1.2.3"
+                    slf4j_version            : "1.7.25",
+                    logback_version          : "1.2.3"
             ]
     ]
     libs = [
@@ -74,30 +74,30 @@ ext {
             "spring-jdbc"                              : "org.springframework:spring-jdbc:$ver.spring.spring_jdbc_version",
 
             //DB
-            "postgresql"                               : "org.postgresql:postgresql:$ver.common.postgresql",
+//            "postgresql"                               : "org.postgresql:postgresql:$ver.common.postgresql",
             "mysql-connector-java"                     : "mysql:mysql-connector-java:$ver.common.mysql",
-            "druid"                                    : "com.alibaba:druid:$ver.common.druid",
+//            "druid"                                    : "com.alibaba:druid:$ver.common.druid",
 
             // MYBATIS 核心库
-            "mybatis-plus-boot-starter"                : "com.baomidou:mybatis-plus-boot-starter:$ver.common.mybatis_plus_boot_starter",
-            "mybatis-plus"                             : "com.baomidou:mybatis-plus:$ver.common.mybatis_plus",
-            "mybatis-plus-generator"                   : "com.baomidou:mybatis-plus-generator:$ver.common.mybatis_plus",
-            "mybatis"                                  : "org.mybatis:mybatis:$ver.common.mybatis",
-            "mybatis-generator-core"                   : "org.mybatis.generator:mybatis-generator-core:$ver.common.mybatis_generator",
-            "mapper"                                   : "tk.mybatis:mapper:$ver.common.mapper",
-            "mybatis-spring-boot-starter"              : "org.mybatis.spring.boot:mybatis-spring-boot-starter:$ver.common.mybatis_spring_boot_starter",
+//            "mybatis-plus-boot-starter"                : "com.baomidou:mybatis-plus-boot-starter:$ver.common.mybatis_plus_boot_starter",
+//            "mybatis-plus"                             : "com.baomidou:mybatis-plus:$ver.common.mybatis_plus",
+//            "mybatis-plus-generator"                   : "com.baomidou:mybatis-plus-generator:$ver.common.mybatis_plus",
+//            "mybatis"                                  : "org.mybatis:mybatis:$ver.common.mybatis",
+//            "mybatis-generator-core"                   : "org.mybatis.generator:mybatis-generator-core:$ver.common.mybatis_generator",
+//            "mapper"                                   : "tk.mybatis:mapper:$ver.common.mapper",
+//            "mybatis-spring-boot-starter"              : "org.mybatis.spring.boot:mybatis-spring-boot-starter:$ver.common.mybatis_spring_boot_starter",
 
             //模板引擎，需要指定 mpg.setTemplateEngine(new FreemarkerTemplateEngine());
-            "freemarker"                               : "org.freemarker:freemarker:$ver.common.freemarker",
-            "velocity-engine-core"                     : "org.apache.velocity:velocity-engine-core:$ver.common.velocity_engine_core",
+//            "freemarker"                               : "org.freemarker:freemarker:$ver.common.freemarker",
+//            "velocity-engine-core"                     : "org.apache.velocity:velocity-engine-core:$ver.common.velocity_engine_core",
 
-            "pagehelper"                               : "com.github.pagehelper:pagehelper:$ver.common.pagehelper",
+//            "pagehelper"                               : "com.github.pagehelper:pagehelper:$ver.common.pagehelper",
 
             //LOG
             "slf4j-api"                                : "org.slf4j:slf4j-api:$ver.common.slf4j_version",
-            "log4j-over-slf4j"                         : "org.slf4j:log4j-over-slf4j:$ver.common.slf4j_version",
-            "jcl-over-slf4j"                           : "org.slf4j:jcl-over-slf4j:$ver.common.slf4j_version",
-            "jul-to-slf4j"                             : "org.slf4j:jul-to-slf4j:$ver.common.slf4j_version",
+//            "log4j-over-slf4j"                         : "org.slf4j:log4j-over-slf4j:$ver.common.slf4j_version",
+//            "jcl-over-slf4j"                           : "org.slf4j:jcl-over-slf4j:$ver.common.slf4j_version",
+//            "jul-to-slf4j"                             : "org.slf4j:jul-to-slf4j:$ver.common.slf4j_version",
             "logback-classic"                          : "ch.qos.logback:logback-classic:$ver.common.logback_version",
             "logback-core"                             : "ch.qos.logback:logback-core:$ver.common.logback_version",
 
@@ -115,7 +115,7 @@ ext {
             "nacos-config-spring-boot-actuator"        : "com.alibaba.boot:nacos-config-spring-boot-actuator:$ver.nacos.nacos_config_spring_boot_starter",
 
             //Swagger
-            "swagger-annotations"                      : "io.swagger:swagger-annotations:$ver.swagger.swagger_annotations"
+//            "swagger-annotations"                      : "io.swagger:swagger-annotations:$ver.swagger.swagger_annotations"
 
     ]
 }

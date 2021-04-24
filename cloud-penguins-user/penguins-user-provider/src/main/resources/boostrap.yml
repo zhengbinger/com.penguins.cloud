@@ -1,21 +1,21 @@
 spring:
   application:
     name: penguins-user-provider
-  #  cloud:
-  #    nacos:
-  #      discovery:
-  #        server-addr: ${NACOS_HOST:localhost:8848}
-  #        namespace: penguins
-  #        group: penguins
-  #      config:
-  #        server-addr: ${NACOS_HOST:localhost:8848}
-  #        group: penguins
-  #        file-extension: yml
-  #        namespace: penguins
-  #        shared-configs[0]:
-  #          dataId: mysql.yml
-  #          group: penguins
-  #          refresh: true
+    cloud:
+      nacos:
+        discovery:
+          server-addr: ${NACOS_HOST:localhost:8848}
+          namespace: penguins
+          group: penguins
+        config:
+          server-addr: ${NACOS_HOST:localhost:8848}
+          group: penguins
+          file-extension: yml
+          namespace: penguins
+          shared-configs[0]:
+            dataId: mysql.yml
+            group: penguins
+            refresh: true
 
   devtools:
     restart:
