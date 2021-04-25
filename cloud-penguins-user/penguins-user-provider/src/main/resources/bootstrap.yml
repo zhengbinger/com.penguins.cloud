@@ -12,3 +12,10 @@ spring:
         group: penguins
         file-extension: yml
         namespace: penguins
+
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/penguins_user?useUnicode=true&serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver

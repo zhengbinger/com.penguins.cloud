@@ -1,0 +1,28 @@
+package com.penguins.cloud.files.provider.entity;
+
+/**
+ * @author zhengbing
+ * @date 2021/4/25 15:57
+ * @email mydreambing@126.com
+ */
+public class FileRecord {
+
+  private long id;
+  private String filename;
+
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public String getFilename() {
+    return filename;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+}
