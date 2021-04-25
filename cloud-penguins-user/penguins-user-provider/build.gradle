@@ -1,21 +1,8 @@
-apply plugin: 'application'
-//启动项
-mainClassName = "com.penguins.cloud.PenguinsUserProviderApplication"
-
-group 'com.penguins.cloud'
-version '0.0.1-SNAPSHOT'
-
 dependencies {
-
+    implementation project(':cloud-penguins-user:penguins-user-api')
     implementation project(':cloud-penguins-commons')
     implementation 'org.springframework.boot:spring-boot-starter-web'
-//    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
-//    implementation 'com.baomidou:mybatis-plus-boot-starter:3.2.0'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
-//    runtimeOnly 'mysql:mysql-connector-java'
-    implementation 'junit:junit:4.12'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.security:spring-security-test'
 }

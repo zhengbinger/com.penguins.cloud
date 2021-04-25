@@ -1,14 +1,5 @@
-group 'com.penguins.cloud'
-version '0.0.1-SNAPSHOT'
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.projectlombok:lombok:1.18.18'
     implementation 'org.apache.rocketmq:rocketmq-client:4.4.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-}
-
-test {
-    useJUnitPlatform()
 }

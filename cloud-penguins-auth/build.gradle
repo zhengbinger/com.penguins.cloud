@@ -1,8 +1,3 @@
-
-apply plugin:'application'
-//启动项
-mainClassName = "com.penguins.CloudPenguinsAuthApplication"
-
 // service 项目所需依赖
 dependencies {
 

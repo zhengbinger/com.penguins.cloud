@@ -1,11 +1,4 @@
-group 'com.penguins.cloud'
-version '0.0.1-SNAPSHOT'
-
 dependencies {
     implementation 'org.projectlombok:lombok:1.18.18'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-}
-
-test {
-    useJUnitPlatform()
 }

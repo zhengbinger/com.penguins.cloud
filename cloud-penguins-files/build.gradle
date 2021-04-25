@@ -1,9 +1,3 @@
-apply plugin: 'application'
-//声明spring-boot插件
-apply plugin: "org.springframework.boot"
-//启动项
-mainClassName = "com.penguins.CloudPenguinsFilesApplication"
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
