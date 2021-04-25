@@ -12,4 +12,6 @@ include 'cloud-penguins-stream'
 include 'cloud-penguins-message'
 include 'cloud-penguins-user:penguins-user-api'
 include 'cloud-penguins-user:penguins-user-provider'
+include 'cloud-penguins-files:penguins-files-api'
+include 'cloud-penguins-files:penguins-files-provider'
 

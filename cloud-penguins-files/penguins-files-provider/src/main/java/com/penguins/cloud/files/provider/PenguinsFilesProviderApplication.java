@@ -1,4 +1,4 @@
-package com.penguins.cloud.files;
+package com.penguins.cloud.files.provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +13,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @EnableDiscoveryClient
 @SpringBootApplication
-public class CloudPenguinsFilesApplication {
+public class PenguinsFilesProviderApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(CloudPenguinsFilesApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(PenguinsFilesProviderApplication.class, args);
+  }
 }

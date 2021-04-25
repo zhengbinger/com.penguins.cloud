@@ -1,23 +1,28 @@
-//package com.penguins.cloud.cloudpenguinsauth.config;
+// package com.penguins.cloud.cloudpenguinsauth.com.penguins.cloud.files.provider.config;
 //
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.http.HttpMethod;
-//import org.springframework.security.authentication.AuthenticationManager;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
-//import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-//import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-//import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
-//import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-//import org.springframework.security.oauth2.provider.ClientDetailsService;
-//import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
-//import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
-//import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
-//import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
-//import org.springframework.security.oauth2.provider.token.TokenStore;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.context.annotation.Bean;
+// import org.springframework.http.HttpMethod;
+// import org.springframework.security.authentication.AuthenticationManager;
+// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+// import
+// org.springframework.security.oauth2.com.penguins.cloud.files.provider.config.annotation.configurers.ClientDetailsServiceConfigurer;
+// import
+// org.springframework.security.oauth2.com.penguins.cloud.files.provider.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+// import
+// org.springframework.security.oauth2.com.penguins.cloud.files.provider.config.annotation.web.configuration.EnableAuthorizationServer;
+// import
+// org.springframework.security.oauth2.com.penguins.cloud.files.provider.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+// import
+// org.springframework.security.oauth2.com.penguins.cloud.files.provider.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+// import org.springframework.security.oauth2.provider.ClientDetailsService;
+// import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
+// import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
+// import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
+// import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+// import org.springframework.security.oauth2.provider.token.TokenStore;
 //
-///**
+/// **
 // * <p>
 // * 认证中心服务端配置 授权服务分成三大块，可以关联记忆。
 // * 1、既然要完成，它首先得知道客户端从哪里读取 - 要进行客户端详情配置
@@ -27,7 +32,8 @@
 // * <p>
 // * AuthorizationServerConfigurerAdapter 要求配置以下几个类，
 // * 这几个类是由 Spring 创建的独立配置对象，他们会被 Spring 传入 AuthorizationServerConfigurer 进行配置
-// * ClientDetailsServiceConfigurer:          用来配置客户端详情服务（ClientDetailService）,客户端详情信息在这里进行初始化，你可以把客户端详情信息写死在这里或者通过数据库来配置，我们这边写死在这里就好了
+// * ClientDetailsServiceConfigurer:
+// 用来配置客户端详情服务（ClientDetailService）,客户端详情信息在这里进行初始化，你可以把客户端详情信息写死在这里或者通过数据库来配置，我们这边写死在这里就好了
 // * AuthorizationServerEndpointsConfigurer:  用来配置令牌（token）的访问断电和令牌服务（token services）
 // * AuthorizationServerSecurityConfigurer:   用来配置令牌端点的安全约束
 // * </p>
@@ -36,8 +42,8 @@
 // * @date 2021/3/23 19:19
 // * @email mydreambing@126.com
 // */
-//@EnableAuthorizationServer
-//public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
+// @EnableAuthorizationServer
+// public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 //
 ////    @Autowired
 ////    public PasswordEncoder passwordEncoder;
@@ -97,7 +103,8 @@
 //     * @throws Exception Exception
 //     */
 //    @Override
-//    public void configure(final AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+//    public void configure(final AuthorizationServerEndpointsConfigurer endpoints) throws Exception
+// {
 ////        endpoints
 ////                //token存储方式
 ////                .tokenStore(jwtTokenStore)
@@ -138,7 +145,8 @@
 //                // 资源列表
 //                .resourceIds("FILE")
 //                // 授权方式
-//                .authorizedGrantTypes("authorization_code", "password", "client_creentials", "implicit", "refresh_token")
+//                .authorizedGrantTypes("authorization_code", "password", "client_creentials",
+// "implicit", "refresh_token")
 //                // 允许授权的范围
 //                .scopes("all")
 //                // false 跳转到授权页面
@@ -185,4 +193,4 @@
 ////                .allowFormAuthenticationForClients();
 //
 //    }
-//}
+// }

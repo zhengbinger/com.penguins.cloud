@@ -1,4 +1,4 @@
-package com.penguins.cloud.files.config;
+package com.penguins.cloud.files.provider.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -13,12 +13,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
-                // 表示 /r/的路径都会受到保护
-                .antMatchers("/r/**").authenticated()
-                .anyRequest().permitAll();
-    }
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.csrf()
+        .disable()
+        .authorizeRequests()
+        // 表示 /r/的路径都会受到保护
+        .antMatchers("/r/**")
+        .authenticated()
+        .anyRequest()
+        .permitAll();
+  }
 }

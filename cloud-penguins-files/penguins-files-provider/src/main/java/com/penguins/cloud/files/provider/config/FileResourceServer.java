@@ -1,4 +1,4 @@
-package com.penguins.cloud.files.config;
+package com.penguins.cloud.files.provider.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
