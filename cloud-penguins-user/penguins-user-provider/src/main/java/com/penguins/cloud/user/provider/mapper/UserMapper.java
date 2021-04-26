@@ -1,7 +1,7 @@
 package com.penguins.cloud.user.provider.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.penguins.cloud.user.provider.entity.User;
+import com.penguins.cloud.user.api.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

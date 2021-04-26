@@ -25,4 +25,9 @@ public class FileRecord {
   public void setFilename(String filename) {
     this.filename = filename;
   }
+
+  @Override
+  public String toString() {
+    return "FileRecord{" + "id=" + id + ", filename='" + filename + '\'' + '}';
+  }
 }

@@ -1,5 +1,1 @@
-dependencies {
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-//    implementation 'org.projectlombok:lombok:1.18.16'
-//    annotationProcessor 'org.projectlombok:lombok:1.18.16'
-}
+jar.enabled = true

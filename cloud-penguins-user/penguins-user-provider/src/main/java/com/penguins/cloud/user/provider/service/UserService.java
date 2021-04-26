@@ -1,7 +1,7 @@
 package com.penguins.cloud.user.provider.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.penguins.cloud.user.provider.entity.User;
+import com.penguins.cloud.user.api.entity.User;
 
 /**
  * @author zhengbing

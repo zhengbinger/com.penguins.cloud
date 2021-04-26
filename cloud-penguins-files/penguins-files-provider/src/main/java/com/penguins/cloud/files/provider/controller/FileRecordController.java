@@ -16,8 +16,12 @@ public class FileRecordController {
 
   @Autowired private FileRecordService fileRecordService;
 
-  @GetMapping("user/get")
-  public FileRecord get() {
-    return fileRecordService.getById(1);
+  @GetMapping("files/get")
+  public String get() {
+    FileRecord file = fileRecordService.getById(1);
+    if (null != file) {
+      return file.toString();
+    }
+    return null;
   }
 }

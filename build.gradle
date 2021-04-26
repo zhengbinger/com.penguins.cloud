@@ -1,11 +1,13 @@
+configure(allprojects) { project ->
 //创建项目时填写
-group 'com.penguins.cloud'
-version '0.0.1-SNAPSHOT'
+    group 'com.penguins.cloud'
+    version '0.0.1-SNAPSHOT'
 
-apply plugin: 'maven'
+    apply plugin: 'maven'
 
-ext {
-    camundaVersion = '7.14.0'
+    ext {
+        camundaVersion = '7.14.0'
+    }
 }
 
 //设定子模块项目中的配置
@@ -67,9 +69,9 @@ configure(subprojects) { subprojects ->
             mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${alibabaCloudVersion}"
         }
     }
-    jar {
-        manifest.attributes provider: 'gradle'
-    }
+//    jar {
+//        manifest.attributes provider: 'gradle'
+//    }
 }
 
 //声明gradle脚本自身需要使用的资源

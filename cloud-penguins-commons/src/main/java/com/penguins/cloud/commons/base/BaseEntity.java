@@ -8,4 +8,6 @@ package com.penguins.cloud.commons.base;
  * @email mydreambing@126.com
  */
 public class BaseEntity {
+
+  public static final String AA = "aa";
 }

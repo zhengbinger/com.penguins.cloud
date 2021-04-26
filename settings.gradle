@@ -7,11 +7,15 @@ include 'cloud-penguins-commons'
 include 'cloud-penguins-auth'
 include 'cloud-penguins-gateway'
 include 'cloud-penguins-workflow'
-include 'cloud-penguins-files'
+
 include 'cloud-penguins-stream'
 include 'cloud-penguins-message'
+include 'cloud-penguins-user'
 include 'cloud-penguins-user:penguins-user-api'
+include 'cloud-penguins-user:penguins-user-client'
 include 'cloud-penguins-user:penguins-user-provider'
+include 'cloud-penguins-files'
 include 'cloud-penguins-files:penguins-files-api'
 include 'cloud-penguins-files:penguins-files-provider'
+
 
