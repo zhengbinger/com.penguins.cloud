@@ -1,4 +1,4 @@
-// package com.penguins.cloud.cloudpenguinsauth.com.penguins.cloud.files.provider.config;
+package com.penguins.cloud.cloudpenguinsauth.config;// package com.penguins.cloud.cloudpenguinsauth.com.penguins.cloud.files.provider.config;
 //
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.context.annotation.Bean;

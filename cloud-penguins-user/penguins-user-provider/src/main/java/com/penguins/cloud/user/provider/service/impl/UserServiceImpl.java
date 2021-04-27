@@ -7,6 +7,8 @@ import com.penguins.cloud.user.provider.service.UserService;
 import org.springframework.stereotype.Service;
 
 /**
+ * 用户服务接口实现
+ *
  * @author zhengbing
  * @date 2021/4/25 16:05
  * @email mydreambing@126.com

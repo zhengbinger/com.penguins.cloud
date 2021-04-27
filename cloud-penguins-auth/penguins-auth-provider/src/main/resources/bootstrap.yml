@@ -12,10 +12,6 @@ spring:
         group: penguins
         file-extension: yml
         namespace: penguins
-        shared-configs[0]:
-          dataId: mysql.yml
-          group: penguins
-          refresh: true
 
   devtools:
     restart:
