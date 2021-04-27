@@ -1,5 +1,6 @@
 package com.penguins.cloud.user.provider.controller;
 
+import com.penguins.cloud.commons.web.RspResult;
 import com.penguins.cloud.user.api.entity.User;
 import com.penguins.cloud.user.client.service.FileRecordService;
 import com.penguins.cloud.user.provider.service.UserService;
@@ -20,8 +21,8 @@ public class UserController {
   @Autowired private FileRecordService fileRecordService;
 
   @GetMapping("user/get")
-  public User get() {
+  public RspResult<User> get() {
     System.out.println(fileRecordService.get());
-    return userService.getById(1);
+    return RspResult.success(userService.getById(1));
   }
 }

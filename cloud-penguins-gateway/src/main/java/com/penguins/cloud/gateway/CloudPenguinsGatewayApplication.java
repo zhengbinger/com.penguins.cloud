@@ -14,6 +14,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class CloudPenguinsGatewayApplication {
 
   public static void main(String[] args) {
+
     SpringApplication.run(CloudPenguinsGatewayApplication.class, args);
   }
 }
