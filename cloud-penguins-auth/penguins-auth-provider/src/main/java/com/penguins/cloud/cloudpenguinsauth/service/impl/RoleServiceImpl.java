@@ -1,6 +1,6 @@
 package com.penguins.cloud.cloudpenguinsauth.service.impl;
 
-import com.penguins.cloud.cloudpenguinsauth.entity.Role;
+import com.penguins.cloud.cloudpenguinsauth.entity.RoleInfo;
 import com.penguins.cloud.cloudpenguinsauth.repository.RoleRepository;
 import com.penguins.cloud.cloudpenguinsauth.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class RoleServiceImpl implements RoleService {
 
-    @Autowired
-    private RoleRepository roleRepository;
+  @Autowired private RoleRepository roleRepository;
 
-    @Override
-    public Role getById(long id) {
-        return roleRepository.getById(id);
-    }
+  @Override
+  public RoleInfo getById(long id) {
+    return roleRepository.getById(id);
+  }
 }

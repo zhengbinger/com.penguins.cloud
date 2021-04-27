@@ -1,6 +1,6 @@
 package com.penguins.cloud.cloudpenguinsauth.repository;
 
-import com.penguins.cloud.cloudpenguinsauth.entity.Role;
+import com.penguins.cloud.cloudpenguinsauth.entity.RoleInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -12,6 +12,6 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface RoleRepository {
 
-    @Select("select id,role_code,role_name from penguins_role  where id = #{id}")
-    Role getById(long id);
+  @Select("select id,role_code,role_name from penguins_role  where id = #{id}")
+  RoleInfo getById(long id);
 }

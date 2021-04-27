@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * Security Web 配置
@@ -22,94 +24,98 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDetailsServiceImpl userDetailService;
+  @Autowired private UserDetailsServiceImpl userDetailService;
 
-    /**
-     * 设置密码验证器
-     * NoOpPasswordEncoder  不进行加密
-     *
-     * @return PasswordEncoder
-     */
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-////        return new NoEnPasswordEncoder();
-//        return new BCryptPasswordEncoder();
-//
-//    }
-    @Override
-    @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
+  /**
+   * 设置密码验证器 NoOpPasswordEncoder 不进行加密
+   *
+   * @return PasswordEncoder
+   */
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    //        return new NoEnPasswordEncoder();
+    return new BCryptPasswordEncoder();
+  }
 
-    @Override
-    protected UserDetailsService userDetailsService() {
-        return userDetailService;
-    }
+  @Override
+  @Bean
+  public AuthenticationManager authenticationManagerBean() throws Exception {
+    return super.authenticationManagerBean();
+  }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
+  @Override
+  protected UserDetailsService userDetailsService() {
+    return userDetailService;
+  }
 
-    }
+  @Override
+  public void configure(WebSecurity web) throws Exception {
+    web.ignoring()
+        .antMatchers(
+            "/error",
+            "/static/**",
+            "/v2/api-docs/**",
+            "/swagger-resources/**",
+            "/webjars/**",
+            "/favicon.ico");
+  }
 
-    /**
-     * 验证管理配置，可配置验证数据来源
-     *
-     * <p>SecurityBuilder用于创建一个AuthenticationManager。
-     * 允许轻松构建<i>内存验证<i/>，LDAP身份验证，基于JDBC的身份验证，添加 UserDetailService 以及添加 AuthenticationProvider。
-     * </p>
-     *
-     * @param auth AuthenticationManagerBuilder
-     * @throws Exception Exception
-     */
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // 设置内存默认认证用户 inMemoryAuthentication
-        /* 将内存验证添加到 AuthenticationManagerBuilder 并返回一个 InMemoryUserDetailsManagerConfigurer 以允许定制内存验证。
-           此方法还可确保 UserDetailsService 可用于 getDefaultUserDetailsService（）方法。
-           请注意，其他 UserDetailsService 可能会将此 UserDetailsService 替换为默认值。
-         */
-//        auth.inMemoryAuthentication()
-//                .passwordEncoder(passwordEncoder())
-//                .withUser("admin").password("admin123").authorities("USER");
-        auth.userDetailsService(userDetailsService());
-    }
+  /**
+   * 验证管理配置，可配置验证数据来源
+   *
+   * <p>SecurityBuilder用于创建一个AuthenticationManager。 允许轻松构建<i>内存验证<i/>，LDAP身份验证，基于JDBC的身份验证，添加
+   * UserDetailService 以及添加 AuthenticationProvider。
+   *
+   * @param auth AuthenticationManagerBuilder
+   * @throws Exception Exception
+   */
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    // 设置内存默认认证用户 inMemoryAuthentication
+    /* 将内存验证添加到 AuthenticationManagerBuilder 并返回一个 InMemoryUserDetailsManagerConfigurer 以允许定制内存验证。
+      此方法还可确保 UserDetailsService 可用于 getDefaultUserDetailsService（）方法。
+      请注意，其他 UserDetailsService 可能会将此 UserDetailsService 替换为默认值。
+    */
+    //        auth.inMemoryAuthentication()
+    //                .passwordEncoder(passwordEncoder())
+    //                .withUser("admin").password("admin123").authorities("USER");
+    auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
+  }
 
-    /**
-     * 重写此方法以配置HttpSecurity。认证安全配置，http请求相关
-     * <P>通常，子类不应通过调用super来调用此方法，因为它可能会覆盖其配置。</P>
-     * 默认配置为：
-     * <p>
-     * ------
-     * http
-     * .authorizeRequests().anyRequest().authenticated()
-     * .and()
-     * .formLogin()
-     * .and()
-     * .httpBasic()
-     *
-     * @param http HttpSecurity
-     * @throws Exception Exception
-     */
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .formLogin().defaultSuccessUrl("/login")
-//                .permitAll()
-//                .and()
-//                .authorizeRequests()
-//                .anyRequest() // 捕获所有路径
-//                .authenticated();
+  /**
+   * 重写此方法以配置HttpSecurity。认证安全配置，http请求相关
+   *
+   * <p>通常，子类不应通过调用super来调用此方法，因为它可能会覆盖其配置。 默认配置为：
+   *
+   * <p>------ http .authorizeRequests().anyRequest().authenticated() .and() .formLogin() .and()
+   * .httpBasic()
+   *
+   * @param http HttpSecurity
+   * @throws Exception Exception
+   */
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.authorizeRequests()
+        .anyRequest()
+        .authenticated()
+        .and()
+        .httpBasic()
+        .and()
+        .cors()
+        .and()
+        .csrf()
+        .disable();
 
-        http.csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/login*").permitAll()
-//                .antMatchers("/oauth/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin().defaultSuccessUrl("/success");
-
-    }
-
+    //    http.csrf()
+    //        .disable()
+    //        .authorizeRequests()
+    //        .antMatchers("/login*")
+    //        .permitAll()
+    //        //                .antMatchers("/oauth/**").permitAll()
+    //        .anyRequest()
+    //        .authenticated()
+    //        .and()
+    //        .formLogin()
+    //        .defaultSuccessUrl("/success");
+  }
 }

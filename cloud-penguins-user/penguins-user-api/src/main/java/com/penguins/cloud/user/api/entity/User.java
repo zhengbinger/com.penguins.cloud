@@ -7,9 +7,18 @@ package com.penguins.cloud.user.api.entity;
  */
 public class User {
 
-  private long id;
-  private String username;
-  private String realname;
+  long id;
+  String username;
+  String realname;
+  String password;
+
+  public User() {}
+
+  public User(String username, String realname, String password) {
+    this.username = username;
+    this.realname = realname;
+    this.password = password;
+  }
 
   public long getId() {
     return id;
@@ -35,6 +44,15 @@ public class User {
 
   public User setRealname(String realname) {
     this.realname = realname;
+    return this;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public User setPassword(String password) {
+    this.password = password;
     return this;
   }
 }

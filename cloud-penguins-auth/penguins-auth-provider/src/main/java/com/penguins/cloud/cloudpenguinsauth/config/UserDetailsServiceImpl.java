@@ -1,6 +1,6 @@
 package com.penguins.cloud.cloudpenguinsauth.config;
 
-import com.penguins.cloud.cloudpenguinsauth.entity.Role;
+import com.penguins.cloud.cloudpenguinsauth.entity.RoleInfo;
 import com.penguins.cloud.cloudpenguinsauth.entity.UserInfo;
 import com.penguins.cloud.cloudpenguinsauth.service.RoleService;
 import com.penguins.cloud.cloudpenguinsauth.service.UserService;
@@ -24,23 +24,21 @@ import java.util.Collections;
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final Log log = LogFactory.getLog(UserDetailsServiceImpl.class);
+  private final Log log = LogFactory.getLog(UserDetailsServiceImpl.class);
 
-    @Autowired
-    private UserService userService;
+  @Autowired private UserService userService;
 
-    @Autowired
-    private RoleService roleServices;
+  @Autowired private RoleService roleServices;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("load username is:" + username);
-        UserInfo userInfo = userService.getUserInfoByUsername(username);
-        if (userInfo == null) {
-            throw new UsernameNotFoundException("user " + username + "is not found");
-        }
-        Role role = roleServices.getById(userService.getRoleIdByUserName(username));
-
-        return new UserInfo(username, userInfo.getPassword(), Collections.singleton(role));
+  @Override
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    log.info("load username is:" + username);
+    UserInfo userInfo = userService.getUserInfoByUsername(username);
+    if (userInfo == null) {
+      throw new UsernameNotFoundException("user " + username + "is not found");
     }
+    RoleInfo roleInfo = roleServices.getById(userService.getRoleIdByUserName(username));
+
+    return new UserInfo(username, userInfo.getPassword(), Collections.singleton(roleInfo));
+  }
 }

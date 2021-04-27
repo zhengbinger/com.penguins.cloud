@@ -1,6 +1,6 @@
 package com.penguins.cloud.cloudpenguinsauth.service;
 
-import com.penguins.cloud.cloudpenguinsauth.entity.Role;
+import com.penguins.cloud.cloudpenguinsauth.entity.RoleInfo;
 
 /**
  * @author zhengbing
@@ -8,11 +8,11 @@ import com.penguins.cloud.cloudpenguinsauth.entity.Role;
  * @email mydreambing@126.com
  */
 public interface RoleService {
-    /**
-     * 根据ID 查询 Role
-     *
-     * @param id long
-     * @return Role 角色
-     */
-    Role getById(long id);
+  /**
+   * 根据ID 查询 RoleInfo
+   *
+   * @param id long
+   * @return RoleInfo 角色
+   */
+  RoleInfo getById(long id);
 }

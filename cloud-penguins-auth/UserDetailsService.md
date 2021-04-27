@@ -73,8 +73,8 @@ public class UserDetailsServiceAutoConfiguration {
     @Lazy
     public InMemoryUserDetailsManager inMemoryUserDetailsManager(SecurityProperties properties, ObjectProvider<PasswordEncoder> passwordEncoder) {
         User user = properties.getUser();
-        List<String> roles = user.getRoles();
-        return new InMemoryUserDetailsManager(new UserDetails[]{org.springframework.security.core.userdetails.User.withUsername(user.getName()).password(this.getOrDeducePassword(user, (PasswordEncoder) passwordEncoder.getIfAvailable())).roles(StringUtils.toStringArray(roles)).build()});
+        List<String> roleInfos = user.getRoles();
+        return new InMemoryUserDetailsManager(new UserDetails[]{org.springframework.security.core.userdetails.User.withUsername(user.getName()).password(this.getOrDeducePassword(user, (PasswordEncoder) passwordEncoder.getIfAvailable())).roleInfos(StringUtils.toStringArray(roleInfos)).build()});
     }
 
     private String getOrDeducePassword(User user, PasswordEncoder encoder) {

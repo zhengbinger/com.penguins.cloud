@@ -1,5 +1,6 @@
 package com.penguins.cloud.cloudpenguinsauth.entity;
 
+import com.penguins.cloud.user.api.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,71 +14,49 @@ import java.util.Set;
  * @date 2021/1/20
  * @email mydreambing@126.com
  */
-public class UserInfo implements UserDetails {
+public class UserInfo extends User implements UserDetails {
 
-    private static final long serialVersionUID = 5067650900856022601L;
-    private long id;
-    private String username;
-    private String password;
-    private Set<Role> roles;
+  private static final long serialVersionUID = 5313558419117914869L;
+  private Set<RoleInfo> roleInfos;
 
-    public UserInfo() {
-    }
+  public Set<RoleInfo> getRoles() {
+    return roleInfos;
+  }
 
-    public UserInfo(String username, String password, Set<Role> roles) {
-        this.username = username;
-        this.password = password;
-        this.roles = roles;
-    }
+  public UserInfo setRoles(Set<RoleInfo> roleInfos) {
+    this.roleInfos = roleInfos;
+    return this;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public UserInfo() {}
 
-    public long getId() {
-        return id;
-    }
+  public UserInfo(String username, String password, Set<RoleInfo> roleInfos) {
+    super(username, "", password);
+    this.roleInfos = roleInfos;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  @Override
+  public boolean isAccountNonExpired() {
+    return true;
+  }
 
-    @Override
-    public String getUsername() {
-        return username;
-    }
+  @Override
+  public boolean isAccountNonLocked() {
+    return true;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
+  @Override
+  public boolean isEnabled() {
+    return true;
+  }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    return null;
+  }
 }
