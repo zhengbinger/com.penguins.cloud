@@ -1,6 +1,6 @@
 spring:
   application:
-    name: cloud-penguins-auth
+    name: penguins-auth-provider
   cloud:
     nacos:
       discovery:
@@ -12,7 +12,14 @@ spring:
         group: penguins
         file-extension: yml
         namespace: penguins
-
   devtools:
     restart:
       enabled: false
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000

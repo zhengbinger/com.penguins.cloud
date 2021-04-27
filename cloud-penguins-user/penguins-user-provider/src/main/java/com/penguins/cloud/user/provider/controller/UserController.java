@@ -6,6 +6,7 @@ import com.penguins.cloud.user.client.service.FileRecordService;
 import com.penguins.cloud.user.provider.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -24,5 +25,15 @@ public class UserController {
   public RspResult<User> get() {
     System.out.println(fileRecordService.get());
     return RspResult.success(userService.getById(1));
+  }
+
+  @GetMapping("user/{username}")
+  public RspResult<User> loadByUsername(@PathVariable String username) {
+    return RspResult.success(userService.getUserByUsername(username));
+  }
+
+  @GetMapping("user/roleId/{username}")
+  public RspResult<Long> getRoleIdByUsername(@PathVariable String username) {
+    return RspResult.success(userService.getRoleIdByUserName(username));
   }
 }

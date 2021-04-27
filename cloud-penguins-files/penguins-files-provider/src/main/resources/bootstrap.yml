@@ -12,3 +12,9 @@ spring:
         group: penguins
         file-extension: yml
         namespace: penguins
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:11011/current/get
+      id: penguins-files-provider

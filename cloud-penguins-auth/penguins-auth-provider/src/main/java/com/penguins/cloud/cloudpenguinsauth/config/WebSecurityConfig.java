@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * Security Web 配置
@@ -25,17 +24,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired private UserDetailsServiceImpl userDetailService;
-
-  /**
-   * 设置密码验证器 NoOpPasswordEncoder 不进行加密
-   *
-   * @return PasswordEncoder
-   */
-  @Bean
-  public PasswordEncoder passwordEncoder() {
-    //        return new NoEnPasswordEncoder();
-    return new BCryptPasswordEncoder();
-  }
 
   @Override
   @Bean
@@ -79,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //        auth.inMemoryAuthentication()
     //                .passwordEncoder(passwordEncoder())
     //                .withUser("admin").password("admin123").authorities("USER");
-    auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
+    auth.userDetailsService(userDetailsService()).passwordEncoder(new BCryptPasswordEncoder());
   }
 
   /**

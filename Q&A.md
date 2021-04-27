@@ -9,3 +9,30 @@
 ```groovy
 jar.enabled = true
 ```
+
+## openFeign 重复使用问题
+
+报错信息如下
+
+```
+Description:
+
+The bean 'penguins-user-provider.FeignClientSpecification' could not be registered. A bean with that name has already been defined and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true```
+
+以上问题报错的意思是一个项目中存在多个接口使用@FeignClient调用同一个服务，意思是说一个服务只能用@FeignClient使用一次。
+
+问题解决：一、 在application.properties文件加入以下代码： 允许存在多个Feign调用相同Service的接口
+
+```
+
+spring.main.allow-bean-definition-overriding=true
+
+```
+
+以上代码可以使多个接口使用@FeignClient调用同一个服务。
+
+问题解决：二、在一个应用中对同一个远程服务的调用只使用一次 FeignClient

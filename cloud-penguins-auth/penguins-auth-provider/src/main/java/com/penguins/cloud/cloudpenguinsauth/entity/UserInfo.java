@@ -1,5 +1,6 @@
 package com.penguins.cloud.cloudpenguinsauth.entity;
 
+import com.penguins.cloud.user.api.entity.Role;
 import com.penguins.cloud.user.api.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,7 +31,7 @@ public class UserInfo extends User implements UserDetails {
 
   public UserInfo() {}
 
-  public UserInfo(String username, String password, Set<RoleInfo> roleInfos) {
+  public UserInfo(String username, String password, Set<Role> roles) {
     super(username, "", password);
     this.roleInfos = roleInfos;
   }

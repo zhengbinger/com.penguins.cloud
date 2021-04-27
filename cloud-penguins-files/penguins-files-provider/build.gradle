@@ -2,6 +2,8 @@ dependencies {
     implementation project(':cloud-penguins-commons')
     implementation project(':cloud-penguins-files:penguins-files-api')
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.2.4.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.2.0'
