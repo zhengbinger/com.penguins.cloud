@@ -8,6 +8,7 @@ import java.util.List;
  * @email mydreambing@126.com
  */
 public class MailBean {
+
   /** 接收人 */
   private List<String> to;
 
