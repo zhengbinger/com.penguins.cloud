@@ -1,4 +1,4 @@
-package com.penguins.cloud.auth.provider.security;
+package com.penguins.cloud.auth.provider.security.jwt;
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -10,6 +10,7 @@ import org.springframework.cache.annotation.Cacheable;
  * @email mydreambing@126.com
  */
 public class JwtTokenCacheStorage implements JwtTokenStorage {
+
   /** 查看缓存配置文件 ehcache.xml 定义 过期时间与 refresh token 过期一致. */
   private static final String TOKEN_CACHE = "user_token";
 

@@ -1,4 +1,4 @@
-package com.penguins.cloud.auth.provider.security;
+package com.penguins.cloud.auth.provider.security.jwt;
 
 import com.alibaba.nacos.common.utils.JacksonUtils;
 import com.fasterxml.jackson.databind.JsonNode;

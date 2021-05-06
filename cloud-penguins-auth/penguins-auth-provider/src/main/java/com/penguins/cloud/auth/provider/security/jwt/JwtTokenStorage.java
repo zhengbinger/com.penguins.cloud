@@ -1,4 +1,4 @@
-package com.penguins.cloud.auth.provider.security;
+package com.penguins.cloud.auth.provider.security.jwt;
 
 /**
  * @author zhengbing
