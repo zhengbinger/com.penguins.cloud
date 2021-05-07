@@ -1,7 +1,13 @@
 package com.penguins.cloud.message.mail;
 
+import javafx.util.Pair;
+
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
 /**
- * 邮件接口
+ * 发送邮件接口
  *
  * @author zhengbing
  * @date 2021/4/19 19:35
@@ -10,9 +16,36 @@ package com.penguins.cloud.message.mail;
 public interface IPenguinsMail {
 
   /**
-   * 发送邮件
+   * 发送简单邮件
    *
-   * @return
+   * @param sendTo 收件人地址
+   * @param title 邮件标题
+   * @param content 邮件内容
    */
-  boolean sendMail();
+  void sendSimpleMail(String sendTo, String title, String content);
+
+  /**
+   * 发送简单邮件
+   *
+   * @param sendTo 收件人地址
+   * @param title 邮件标题
+   * @param content 邮件内容
+   * @param attachments<文件名，附件> 附件列表
+   */
+  void sendAttachmentsMail(
+      String sendTo, String title, String content, List<Pair<String, File>> attachments);
+
+  /**
+   * 发送模板邮件
+   *
+   * @param sendTo 收件人地址
+   * @param title 邮件标题
+   * @param content<key, 内容> 邮件内容
+   * @param attachments<文件名，附件> 附件列表
+   */
+  void sendTemplateMail(
+      String sendTo,
+      String title,
+      Map<String, Object> content,
+      List<Pair<String, File>> attachments);
 }

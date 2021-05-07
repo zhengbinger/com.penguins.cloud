@@ -11,9 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @email mydreambing@126.com
  */
 @SpringBootApplication
-public class MessageApplication {
+public class CloudPenguinsMessageApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(MessageApplication.class, args);
+    SpringApplication.run(CloudPenguinsMessageApplication.class, args);
   }
 }

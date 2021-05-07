@@ -99,5 +99,6 @@ buildscript {
     dependencies {
         // spring-boot 插件
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springbootVersion")
+        classpath('com.bmuschko:gradle-docker-plugin:6.7.0')
     }
 }

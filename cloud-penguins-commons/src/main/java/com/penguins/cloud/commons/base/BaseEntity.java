@@ -9,5 +9,4 @@ package com.penguins.cloud.commons.base;
  */
 public class BaseEntity {
 
-  public static final String AA = "aa";
 }

@@ -10,8 +10,9 @@ package com.penguins.cloud.message.mail;
 public enum MailType {
   /** 基础文本邮件 */
   text("文本邮件"),
-
-  /** HTML 模板邮件 */
+  /** 附件邮件 */
+  attachment("附件邮件"),
+  /** 模板邮件 */
   template("模板邮件");
 
   private String name;

@@ -1,3 +1,5 @@
+apply plugin: "com.bmuschko.docker-spring-boot-application"
+
 dependencies {
     implementation project(':cloud-penguins-commons')
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
