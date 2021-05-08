@@ -5,6 +5,7 @@ import com.penguins.cloud.user.api.entity.User;
 import com.penguins.cloud.user.provider.mapper.UserRepository;
 import com.penguins.cloud.user.provider.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,12 +20,14 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
   @Autowired private UserRepository userRepository;
 
   @Override
-  public User getUserByUsername(String username) {
-    return userRepository.getUserByUsername(username);
+  @Cacheable(cacheNames = {"username::roleid"})
+  public long getRoleIdByUserName(String username) {
+    return userRepository.getRoleIdByUserName(username);
   }
 
   @Override
-  public long getRoleIdByUserName(String username) {
-    return userRepository.getRoleIdByUserName(username);
+  @Cacheable(cacheNames = {"username"})
+  public User getUserByUsername(String username) {
+    return userRepository.getUserByUsername(username);
   }
 }

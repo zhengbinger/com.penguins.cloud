@@ -1,12 +1,15 @@
 package com.penguins.cloud.user.api.entity;
 
+import java.io.Serializable;
+
 /**
  * @author zhengbing
  * @date 2021/4/25 15:57
  * @email mydreambing@126.com
  */
-public class User {
+public class User implements Serializable {
 
+  private static final long serialVersionUID = -503878178490519694L;
   long id;
   String username;
   String realname;

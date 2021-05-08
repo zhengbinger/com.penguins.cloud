@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.penguins.cloud.files.provider.entity.FileRecord;
 import com.penguins.cloud.files.provider.mapper.FileRecordMapper;
 import com.penguins.cloud.files.provider.service.FileRecordService;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import java.io.Serializable;
 
 /**
  * @author zhengbing
@@ -13,4 +16,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class FileRecordServiceImpl extends ServiceImpl<FileRecordMapper, FileRecord>
-    implements FileRecordService {}
+    implements FileRecordService {
+
+  @Override
+  @Cacheable(cacheNames = {"files"})
+  public FileRecord getById(Serializable id) {
+    return super.getById(id);
+  }
+}
