@@ -46,3 +46,24 @@ spring:
 ### 自定义路由调试
 
 <http://localhost:801/auth/test/getConfig>
+
+# 网关配置详解
+
+## 关键词汇
+
+- route（路由）路由是网关最基础的组件   
+  **ID** 来定义一个唯一应用路由   
+  **URI** 来定义路由请求的目标应用   
+  **predicates(断言)**    route下面的一个集合属性 --就是路由转发要满足的条件   
+  **filters(过滤器)**     route下面的一个集合属性 --过滤器,请求在传递过程中可以通过过滤器对其进行一定的修改
+
+- predicates
+  使用Java 8 的新特性 predicate，输入类型是 Spring Framework ServerWebExchange. 可以用来匹配 HTTP 请求中的任意属性，例如：Headers 或者 parameters
+
+- filter
+
+  这些是由特定工厂建造的 GatewayFilter 的实例。 在这里，您可以在发送下游请求之前或之后修改请求和响应。
+
+## 网关运行原理
+
+![img.png](assert/img.png)

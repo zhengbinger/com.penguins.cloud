@@ -132,6 +132,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
         .authorizationCodeServices(authorizationCodeServices)
         // 令牌管理服务
         .tokenServices(tokenServices())
+        .userApprovalHandler(new AuthApprovalHandler())
         // 允许post提交
         .allowedTokenEndpointRequestMethods(HttpMethod.POST, HttpMethod.GET);
   }

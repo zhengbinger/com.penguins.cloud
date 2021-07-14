@@ -16,7 +16,6 @@ spring:
     restart:
       enabled: false
 
-
 feign:
   client:
     config:
