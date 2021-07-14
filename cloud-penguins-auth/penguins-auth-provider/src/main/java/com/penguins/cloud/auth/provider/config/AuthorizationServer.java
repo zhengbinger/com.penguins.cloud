@@ -42,17 +42,7 @@ import javax.sql.DataSource;
 @EnableAuthorizationServer
 public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 
-  //    @Autowired
-  //    public PasswordEncoder passwordEncoder;
-
   @Autowired private DataSource dataSource;
-  //
-  //    @Autowired
-  //    private JwtAccessTokenConverter jwtAccessTokenConverter;
-
-  //
-  //    @Autowired
-  //    public UserDetailsServiceImpl userService;
 
   @Autowired private ClientDetailsService clientDetailsService;
 
@@ -126,15 +116,15 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     //                .authenticationManager(authenticationManager);
 
     endpoints
-        // 密码管理模式
-        .authenticationManager(authenticationManager)
-        // 授权码模式
-        .authorizationCodeServices(authorizationCodeServices)
-        // 令牌管理服务
-        .tokenServices(tokenServices())
-        .userApprovalHandler(new AuthApprovalHandler())
-        // 允许post提交
-        .allowedTokenEndpointRequestMethods(HttpMethod.POST, HttpMethod.GET);
+            // 密码管理模式
+            .authenticationManager(authenticationManager)
+            // 授权码模式
+            .authorizationCodeServices(authorizationCodeServices)
+            // 令牌管理服务
+            .tokenServices(tokenServices())
+//        .userApprovalHandler(new AuthApprovalHandler())
+            // 允许post提交
+            .allowedTokenEndpointRequestMethods(HttpMethod.POST, HttpMethod.GET);
   }
 
   /**

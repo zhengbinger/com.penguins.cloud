@@ -2,9 +2,11 @@ jar.enabled = true
 
 dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
-    // https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl
     implementation group: 'org.codehaus.jackson', name: 'jackson-core-asl', version: '1.9.13'
     implementation group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
+
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+    compile group: 'com.github.xiaoymin', name: 'swagger-bootstrap-ui', version: '1.9.6'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'

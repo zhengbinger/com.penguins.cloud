@@ -5,6 +5,8 @@ import com.penguins.cloud.user.api.dto.UserDto;
 import com.penguins.cloud.user.api.entity.User;
 import com.penguins.cloud.user.client.service.FileRecordService;
 import com.penguins.cloud.user.provider.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -18,6 +20,7 @@ import javax.validation.constraints.NotNull;
  * @date 2021/4/25 16:07
  * @email mydreambing@126.com
  */
+@Api(tags = "用户管理接口")
 @RestController
 @RequestMapping("user")
 public class UserController {
@@ -34,6 +37,7 @@ public class UserController {
   //    return RspResult.success(userService.getById(1));
   //  }
 
+  @ApiOperation("添加用户")
   @PostMapping("add")
   public RspResult<User> addition(@NotNull UserDto userDto) {
     // 处理 DTO 中需要特殊处理的数据
