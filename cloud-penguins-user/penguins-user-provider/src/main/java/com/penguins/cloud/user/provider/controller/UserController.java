@@ -10,7 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
@@ -57,7 +56,7 @@ public class UserController {
 
   @GetMapping("{username}")
   public RspResult<User> loadByUsername(@PathVariable String username) {
-    RedisSerializer redisSerializer = redisTemplate.getHashValueSerializer();
+//    RedisSerializer redisSerializer = redisTemplate.getHashValueSerializer();
     return RspResult.success(userService.getUserByUsername(username));
   }
 

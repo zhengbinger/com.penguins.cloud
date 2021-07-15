@@ -23,8 +23,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-  @Autowired private UserDetailsServiceImpl userDetailService;
+  @Autowired
+  private UserDetailsServiceImpl userDetailService;
 
+  /**
+   * 重写authenticationManager 不重写AuthoricationServerConfig认证中心中的AuthenticationManager无法注入
+   *
+   * @return
+   * @throws Exception
+   */
   @Override
   @Bean
   public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -40,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   public void configure(WebSecurity web) throws Exception {
     web.ignoring()
         .antMatchers(
-            "/oauth/**",
+                //            "/oauth/**",
             "/error",
             "/static/**",
             "/v2/api-docs/**",
@@ -65,9 +72,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       此方法还可确保 UserDetailsService 可用于 getDefaultUserDetailsService（）方法。
       请注意，其他 UserDetailsService 可能会将此 UserDetailsService 替换为默认值。
     */
-    //        auth.inMemoryAuthentication()
-    //                .passwordEncoder(passwordEncoder())
-    //                .withUser("admin").password("admin123").authorities("USER");
     auth.userDetailsService(userDetailsService()).passwordEncoder(new BCryptPasswordEncoder());
   }
 
@@ -94,17 +98,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .and()
         .csrf()
         .disable();
-
-    //    http.csrf()
-    //        .disable()
-    //        .authorizeRequests()
-    //        .antMatchers("/login*")
-    //        .permitAll()
-    //        //                .antMatchers("/oauth/**").permitAll()
-    //        .anyRequest()
-    //        .authenticated()
-    //        .and()
-    //        .formLogin()
-    //        .defaultSuccessUrl("/success");
   }
 }

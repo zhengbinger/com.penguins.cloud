@@ -27,11 +27,3 @@ feign:
         connectTimeout: 10000
         readTimeout: 10000
 
-logging:
-  level:
-    com:
-      penguins:
-        cloud:
-          user:
-            provider:
-              mapper: debug

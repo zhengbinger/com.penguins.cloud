@@ -21,11 +21,6 @@ public class TestController {
 
   @Autowired private PasswordEncoder passwordEncoder;
 
-  //    @GetMapping("test")
-  //    public String test() {
-  //        return UUID.randomUUID().toString();
-  //    }
-
   @GetMapping("fail")
   public String fail() {
     return "fail";
@@ -39,7 +34,6 @@ public class TestController {
   @GetMapping("encode")
   public String encode(String password) {
     return passwordEncoder.encode(password);
-    //    return "";
   }
   /**
    * 获取授权的用户信息

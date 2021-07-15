@@ -13,6 +13,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
+ * Swagger 接口文档集成
+ *
  * @author 郑冰
  * @email mydreambing@126.com
  * @since jdk8
@@ -40,7 +42,6 @@ public class Swagger2Config implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
         registry.addResourceHandler("/static/**").addResourceLocations(
                 "classpath:/static/");
         registry.addResourceHandler("doc.html").addResourceLocations(
@@ -49,7 +50,5 @@ public class Swagger2Config implements WebMvcConfigurer {
                 "classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations(
                 "classpath:/META-INF/resources/webjars/");
-
-
     }
 }
