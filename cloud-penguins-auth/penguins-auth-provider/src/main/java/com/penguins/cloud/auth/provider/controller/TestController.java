@@ -19,7 +19,8 @@ import java.security.Principal;
 @RestController
 public class TestController {
 
-  @Autowired private PasswordEncoder passwordEncoder;
+  @Autowired
+  private PasswordEncoder passwordEncoder;
 
   @GetMapping("fail")
   public String fail() {
@@ -49,7 +50,6 @@ public class TestController {
   @GetMapping("/foo/test")
   public String test() {
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
     System.out.println("current authentication: 【 {} 】" + authentication);
     return "success";
   }
