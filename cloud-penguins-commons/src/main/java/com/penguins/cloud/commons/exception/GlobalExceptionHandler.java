@@ -51,7 +51,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = NullPointerException.class)
     public RspResult<Object> handle(NullPointerException e) {
         e.printStackTrace();
-        return RspResult.fail("【 BPM 系统内部错误！】");
+        return RspResult.fail("【 PENGUINS 系统内部错误！】");
     }
 
     /**
@@ -166,7 +166,7 @@ public class GlobalExceptionHandler {
                         + element.getMethodName()
                         + "，所在行号："
                         + element.getLineNumber());
-        return RspResult.fail("【 BPM 系统内部错误！】" + e.getMessage());
+        return RspResult.fail("【 PENGUINS 系统内部错误！】" + e.getMessage());
     }
 }
 

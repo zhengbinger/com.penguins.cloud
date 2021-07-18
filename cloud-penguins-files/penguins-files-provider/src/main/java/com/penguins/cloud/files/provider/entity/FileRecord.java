@@ -8,6 +8,7 @@ package com.penguins.cloud.files.provider.entity;
 public class FileRecord {
 
   private long id;
+  
   private String filename;
 
   public long getId() {

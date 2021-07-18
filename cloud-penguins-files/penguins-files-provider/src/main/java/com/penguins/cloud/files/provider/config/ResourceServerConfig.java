@@ -19,7 +19,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     http.authorizeRequests()
             .requestMatchers(EndpointRequest.toAnyEndpoint())
             .permitAll()
-            .antMatchers("/v2/api-docs/**", "/swagger-resources/**", "/doc.html", "/webjars/**")
+            .antMatchers(
+                    "/v2/api-docs/**",
+                    "/swagger-resources/**",
+                    "/doc.html",
+                    "/webjars/**")
         .permitAll()
         .anyRequest()
         .authenticated()

@@ -31,12 +31,12 @@ public class RedisConfig {
     redisTemplate.setConnectionFactory(factory);
     GenericJackson2JsonRedisSerializer serializer = new GenericJackson2JsonRedisSerializer();
 
-    // 值采用json序列化
+    // 值采用 json 序列化
     redisTemplate.setValueSerializer(serializer);
-    // 使用StringRedisSerializer来序列化和反序列化redis的key值
+    // 使用 StringRedisSerializer 来序列化和反序列化 redis 的 key 值
     redisTemplate.setKeySerializer(new StringRedisSerializer());
 
-    // 设置hash key 和value序列化模式
+    // 设置 hash key 和 value 序列化模式
     redisTemplate.setHashKeySerializer(new StringRedisSerializer());
     redisTemplate.setHashValueSerializer(serializer);
     redisTemplate.afterPropertiesSet();
