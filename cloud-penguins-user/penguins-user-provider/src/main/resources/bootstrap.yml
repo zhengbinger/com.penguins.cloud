@@ -27,9 +27,9 @@ feign:
         connectTimeout: 10000
         readTimeout: 10000
 
-security:
-  oauth2:
-    resource:
-      user-info-uri: http://localhost:11011/current/get
-      id: penguins-user-provider
+#security:
+#  oauth2:
+#    resource:
+#      user-info-uri: http://localhost:11011/current/get
+#      id: penguins-user-provider
 

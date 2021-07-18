@@ -4,12 +4,12 @@ dependencies {
     compile project(':cloud-penguins-user:penguins-user-client')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
-    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.2.4.RELEASE'
-    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.2.4.RELEASE'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.2.0'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    
+
     runtimeOnly 'mysql:mysql-connector-java'
     runtimeOnly('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery') {
         exclude group: 'org.springframework.cloud', module: 'spring-cloud-starter-netflix-ribbon'

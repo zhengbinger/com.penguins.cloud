@@ -21,11 +21,6 @@ public class FileRecordController {
   @GetMapping("get")
   public String get() throws InterruptedException {
     FileRecord file = fileRecordService.getById(1);
-    //    try {
-    //      Thread.sleep(2000);
-    //    } catch (InterruptedException e) {
-    //      e.printStackTrace();
-    //    }
     if (null != file) {
       return file.toString();
     }

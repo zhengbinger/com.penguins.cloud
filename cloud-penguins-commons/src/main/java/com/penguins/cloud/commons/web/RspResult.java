@@ -109,15 +109,29 @@ public class RspResult<T> implements Serializable {
     return result;
   }
 
-  /** 响应状态 */
+  /**
+   * 响应状态
+   */
   public enum RspResultStatus {
-    /** 成功 */
+    /**
+     * 成功
+     */
     success(200, "success"),
-    /** 失败 */
+    /**
+     * 失败
+     */
     fail(500, "fail");
 
     private int code;
     private String message;
+
+    int getCode() {
+      return code;
+    }
+
+    String getMessage() {
+      return message;
+    }
 
     RspResultStatus(int code, String message) {
       this.code = code;

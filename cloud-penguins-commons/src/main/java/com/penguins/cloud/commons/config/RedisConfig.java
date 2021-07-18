@@ -12,6 +12,8 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import java.util.Objects;
+
 /**
  * Redis 缓存模板，缓存管理器配置
  *
@@ -27,7 +29,6 @@ public class RedisConfig {
   public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
     RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
     redisTemplate.setConnectionFactory(factory);
-
     GenericJackson2JsonRedisSerializer serializer = new GenericJackson2JsonRedisSerializer();
 
     // 值采用json序列化
@@ -45,12 +46,12 @@ public class RedisConfig {
   @Bean
   public RedisCacheManager redisCacheManager(RedisTemplate<String, Object> redisTemplate) {
     RedisCacheWriter redisCacheWriter =
-        RedisCacheWriter.nonLockingRedisCacheWriter(redisTemplate.getConnectionFactory());
+            RedisCacheWriter.nonLockingRedisCacheWriter(Objects.requireNonNull(redisTemplate.getConnectionFactory()));
     RedisCacheConfiguration redisCacheConfiguration =
-        RedisCacheConfiguration.defaultCacheConfig()
-            .serializeValuesWith(
-                RedisSerializationContext.SerializationPair.fromSerializer(
-                    redisTemplate.getValueSerializer()));
+            RedisCacheConfiguration.defaultCacheConfig()
+                    .serializeValuesWith(
+                            RedisSerializationContext.SerializationPair.fromSerializer(
+                                    redisTemplate.getValueSerializer()));
     return new RedisCacheManager(redisCacheWriter, redisCacheConfiguration);
   }
 }

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
+ * 用户模块远程调用接口
+ *
  * @author zhengbing
  * @date 2021/4/27 15:06
  * @email mydreambing@126.com
