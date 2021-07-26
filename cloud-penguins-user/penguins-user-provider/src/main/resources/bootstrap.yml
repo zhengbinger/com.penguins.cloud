@@ -17,7 +17,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/penguins_user?useUnicode=true&serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true
     username: root
-    password: root
+    password: Zb@123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 feign:

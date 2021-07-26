@@ -1,8 +1,9 @@
-package com.penguins.cloud.auth.client.service;
+package com.penguins.cloud.user.client.service;
 
 import com.penguins.cloud.commons.web.RspResult;
-import com.penguins.cloud.user.api.entity.Role;
 import com.penguins.cloud.user.api.entity.User;
+import com.penguins.cloud.user.client.config.UserProviderFallBackConfig;
+import com.penguins.cloud.user.client.service.impl.UserFeignServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @date 2021/4/27 15:06
  * @email mydreambing@126.com
  */
-@FeignClient(name = "penguins-user-provider")
+@FeignClient(name = "penguins-user-provider",
+        contextId = "penguins",
+        fallback = UserFeignServiceImpl.class,
+        configuration = UserProviderFallBackConfig.class)
 public interface UserFeignService {
 
   @GetMapping("user/{username}")
@@ -22,7 +26,4 @@ public interface UserFeignService {
 
   @GetMapping("user/roleId/{username}")
   RspResult<Long> getRoleIdByUsername(@PathVariable String username);
-
-  @GetMapping("user/role/{id}")
-  RspResult<Role> getRoleById(@PathVariable long id);
 }

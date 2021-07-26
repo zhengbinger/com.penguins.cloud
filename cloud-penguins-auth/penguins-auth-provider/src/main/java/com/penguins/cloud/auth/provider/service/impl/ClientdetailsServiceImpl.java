@@ -16,6 +16,7 @@ import java.util.List;
  */
 @Service("clientdetailsService")
 public class ClientdetailsServiceImpl implements ClientdetailsService {
+
   @Resource private ClientdetailsDao clientdetailsDao;
 
   /**
@@ -26,7 +27,7 @@ public class ClientdetailsServiceImpl implements ClientdetailsService {
    */
   @Override
   public Clientdetails queryById(String appid) {
-    return this.clientdetailsDao.queryById(appid);
+    return this.queryById(appid);
   }
 
   /**

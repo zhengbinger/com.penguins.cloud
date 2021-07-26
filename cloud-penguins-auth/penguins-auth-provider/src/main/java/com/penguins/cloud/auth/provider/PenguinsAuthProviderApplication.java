@@ -9,10 +9,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableResourceServer
-@EnableFeignClients(basePackages = {"com.penguins.cloud.auth.client.service"})
+@EnableFeignClients(basePackages = {"com.penguins.cloud.user.client.service"})
 public class PenguinsAuthProviderApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(PenguinsAuthProviderApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(PenguinsAuthProviderApplication.class, args);
+    }
 }

@@ -162,6 +162,17 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
    */
   @Override
   public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+//    clients.inMemory().withClient()
+//            .autoApprove()
+//            .authorities()
+//            .accessTokenValiditySeconds()
+//            .additionalInformation()
+//            .authorizedGrantTypes()
+//            .refreshTokenValiditySeconds()
+//            .redirectUris()
+//            .resourceIds()
+//            .scopes()
+//            .secret()
     clients.withClientDetails(clientDetails());
   }
 

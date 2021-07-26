@@ -1,5 +1,6 @@
 package com.penguins.cloud.auth.provider.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.penguins.cloud.auth.api.entity.OauthClientDetails;
 import com.penguins.cloud.auth.api.service.OauthClientDetailsService;
 import com.penguins.cloud.auth.provider.repository.OauthClientDetailsDao;
@@ -15,8 +16,11 @@ import java.util.List;
  * @since 2021-04-29 10:51:07
  */
 @Service("oauthClientDetailsService")
-public class OauthClientDetailsServiceImpl implements OauthClientDetailsService {
-  @Resource private OauthClientDetailsDao oauthClientDetailsDao;
+public class OauthClientDetailsServiceImpl extends ServiceImpl<OauthClientDetailsDao, OauthClientDetails>
+        implements OauthClientDetailsService {
+
+  @Resource
+  private OauthClientDetailsDao oauthClientDetailsDao;
 
   /**
    * 通过ID查询单条数据
@@ -49,7 +53,7 @@ public class OauthClientDetailsServiceImpl implements OauthClientDetailsService 
    */
   @Override
   public OauthClientDetails insert(OauthClientDetails oauthClientDetails) {
-    this.oauthClientDetailsDao.insert(oauthClientDetails);
+    this.save(oauthClientDetails);
     return oauthClientDetails;
   }
 

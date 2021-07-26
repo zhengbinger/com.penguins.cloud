@@ -5,6 +5,8 @@ import com.penguins.cloud.user.api.entity.Permission;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
+ * 权限
+ *
  * @author zhengbing
  * @date 2021/4/29 17:26
  * @email mydreambing@126.com

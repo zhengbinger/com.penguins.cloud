@@ -1,5 +1,6 @@
 package com.penguins.cloud.auth.provider.repository;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.penguins.cloud.auth.api.entity.OauthClientDetails;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -13,7 +14,7 @@ import java.util.List;
  * @since 2021-04-29 10:51:07
  */
 @Mapper
-public interface OauthClientDetailsDao {
+public interface OauthClientDetailsDao extends BaseMapper<OauthClientDetails> {
 
   /**
    * 通过ID查询单条数据
@@ -46,6 +47,7 @@ public interface OauthClientDetailsDao {
    * @param oauthClientDetails 实例对象
    * @return 影响行数
    */
+  @Override
   int insert(OauthClientDetails oauthClientDetails);
 
   /**

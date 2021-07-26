@@ -18,5 +18,7 @@ public interface IUpload {
      * @param inputStream InputStream
      * @return 文件路径
      */
-    String upload(InputStream inputStream);
+    default String upload(InputStream inputStream) {
+        return "";
+    }
 }

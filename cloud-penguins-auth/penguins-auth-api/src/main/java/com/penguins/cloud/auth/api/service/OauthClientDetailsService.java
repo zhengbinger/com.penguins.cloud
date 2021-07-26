@@ -1,5 +1,6 @@
 package com.penguins.cloud.auth.api.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.penguins.cloud.auth.api.entity.OauthClientDetails;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * @author makejava
  * @since 2021-04-29 09:51:41
  */
-public interface OauthClientDetailsService {
+public interface OauthClientDetailsService extends IService<OauthClientDetails> {
 
   /**
    * 通过ID查询单条数据
