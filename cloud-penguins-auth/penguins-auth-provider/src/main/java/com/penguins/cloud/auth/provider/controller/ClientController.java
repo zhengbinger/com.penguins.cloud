@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @email mydreambing@126.com
  * @since jdk8
  **/
-@RestController
+@RestController(value = "auth/clients")
 public class ClientController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class ClientController {
      *
      * @param client Clientdetails
      */
-    @PostMapping(value = "auth/clients")
+    @PostMapping
     public void clientCoopration(@RequestBody OauthClientDetails client) {
         client.setClientSecret(passwordEncoder.encode(client.getClientSecret()));
         clientDetailsService.insert(client);

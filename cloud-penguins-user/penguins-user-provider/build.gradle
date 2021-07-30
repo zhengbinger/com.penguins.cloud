@@ -17,5 +17,6 @@ dependencies {
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-stream-rocketmq'
 //    implementation 'org.springframework.cloud:spring-cloud-starter-alibaba-sentinel'
 }

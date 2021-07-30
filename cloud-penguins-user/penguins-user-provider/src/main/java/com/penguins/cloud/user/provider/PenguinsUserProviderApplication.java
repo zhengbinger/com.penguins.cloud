@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @date 2021/4/25 12:26
  * @email mydreambing@126.com
  */
+
 @EnableDiscoveryClient
 @SpringBootApplication
 @ComponentScan(basePackages = {"springfox.documentation.swagger2", "com.penguins"})
@@ -24,6 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class PenguinsUserProviderApplication {
   public static void main(String[] args) {
     SpringApplication.run(PenguinsUserProviderApplication.class, args);
+    
   }
 
 
