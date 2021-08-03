@@ -17,8 +17,16 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserRepository, User> implements UserService {
-  
-  @Autowired private UserRepository userRepository;
+
+  @Autowired
+  private UserRepository userRepository;
+
+  @Override
+  public boolean save(User user) {
+    boolean saveResult = this.save(user);
+    
+    return false;
+  }
 
   @Override
   @Cacheable(cacheNames = {"username::roleid"})
