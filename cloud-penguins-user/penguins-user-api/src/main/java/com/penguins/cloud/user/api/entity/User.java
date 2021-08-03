@@ -10,18 +10,23 @@ import java.io.Serializable;
 public class User implements Serializable {
 
   private static final long serialVersionUID = -503878178490519694L;
-  
+
   long id;
   String username;
   String realname;
   String password;
+  String mobile;
+  String email;
 
-  public User() {}
+  public User() {
+  }
 
-  public User(String username, String realname, String password) {
+  public User(String username, String realname, String password, String mobile, String email) {
     this.username = username;
     this.realname = realname;
     this.password = password;
+    this.mobile = mobile;
+    this.email = email;
   }
 
   public long getId() {
@@ -57,6 +62,24 @@ public class User implements Serializable {
 
   public User setPassword(String password) {
     this.password = password;
+    return this;
+  }
+
+  public String getMobile() {
+    return mobile;
+  }
+
+  public User setMobile(String mobile) {
+    this.mobile = mobile;
+    return this;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public User setEmail(String email) {
+    this.email = email;
     return this;
   }
 }

@@ -24,7 +24,10 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
   @Override
   public boolean save(User user) {
     boolean saveResult = this.save(user);
-    
+    // 发送短信
+    user.getMobile();
+    // 发送邮件
+    user.getEmail();
     return false;
   }
 
