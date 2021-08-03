@@ -49,11 +49,13 @@ public class UserController {
     return RspResult.fail("保存用户失败");
   }
 
+  @ApiOperation("根据用户名获取用户")
   @GetMapping("{username}")
   public RspResult<User> loadByUsername(@PathVariable String username) {
     return RspResult.success(userService.getUserByUsername(username));
   }
 
+  @ApiOperation("根据用户名获取角色ID")
   @GetMapping("roleId/{username}")
   public RspResult<Long> getRoleIdByUsername(@PathVariable String username) {
     return RspResult.success(userService.getRoleIdByUserName(username));
