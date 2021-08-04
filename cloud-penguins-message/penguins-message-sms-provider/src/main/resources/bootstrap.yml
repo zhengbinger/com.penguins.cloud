@@ -1,7 +1,6 @@
-
 spring:
   application:
-    name: cloud-penguins-message
+    name: penguins-message-sms-provider
   cloud:
     nacos:
       discovery:
@@ -25,5 +24,3 @@ spring:
           destination: sms-topic
           content-type: text/plain
           group: sms-group
-  mail:
-    username: mydreambing@126.com

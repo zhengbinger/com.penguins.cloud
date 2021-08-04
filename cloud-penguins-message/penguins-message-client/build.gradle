@@ -1,3 +1,5 @@
+jar.enabled = true
+
 dependencies {
     compile project(':cloud-penguins-commons')
     compile project(':cloud-penguins-message:penguins-message-api')
