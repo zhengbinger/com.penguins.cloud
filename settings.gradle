@@ -5,11 +5,19 @@ if (!JavaVersion.current().java8Compatible) {
 
 include 'cloud-penguins-commons'
 include 'cloud-penguins-auth'
+include 'cloud-penguins-auth:penguins-auth-client'
+include 'cloud-penguins-auth:penguins-auth-provider'
+
 include 'cloud-penguins-gateway'
 include 'cloud-penguins-workflow'
 
 include 'cloud-penguins-stream'
+
 include 'cloud-penguins-message'
+include 'cloud-penguins-message:penguins-message-api'
+include 'cloud-penguins-message:penguins-message-client'
+include 'cloud-penguins-message:penguins-message-sms-provider'
+include 'cloud-penguins-message:penguins-message-email-provider'
 
 include 'cloud-penguins-user'
 include 'cloud-penguins-user:penguins-user-api'
@@ -23,5 +31,4 @@ include 'cloud-penguins-files:penguins-files-provider'
 include 'cloud-penguins-auth:penguins-auth-api'
 include 'cloud-penguins-auth:penguins-auth-client'
 include 'cloud-penguins-auth:penguins-auth-provider'
-
 
