@@ -12,3 +12,17 @@ spring:
         group: penguins
         file-extension: yml
         namespace: penguins
+    stream:
+      rocketmq:
+        binder:
+          name-server: 120.25.218.127:9876
+      bindings:
+        sms-out-0:
+          destination: sms-topic
+          content-type: application/json
+        sms-in-0:
+          destination: sms-topic
+          content-type: text/plain
+          group: sms-group
+  mail:
+    username: mydreambing@126.com

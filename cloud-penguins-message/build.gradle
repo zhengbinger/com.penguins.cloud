@@ -6,14 +6,15 @@ dependencies {
     implementation 'com.aliyun:tea-openapi:0.0.13'
     implementation 'com.aliyun:dysmsapi20170525:2.0.1'
 
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.2.0'
-    runtimeOnly 'mysql:mysql-connector-java'
+//    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+//    implementation 'com.baomidou:mybatis-plus-boot-starter:3.2.0'
+//    runtimeOnly 'mysql:mysql-connector-java'
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
     runtimeOnly('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery') {
         exclude group: 'org.springframework.cloud', module: 'spring-cloud-starter-netflix-ribbon'
     }
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-stream-rocketmq'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
 }
