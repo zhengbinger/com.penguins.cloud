@@ -10,6 +10,7 @@ include 'cloud-penguins-auth:penguins-auth-client'
 include 'cloud-penguins-auth:penguins-auth-provider'
 
 include 'cloud-penguins-gateway'
+
 include 'cloud-penguins-workflow'
 
 include 'cloud-penguins-stream'

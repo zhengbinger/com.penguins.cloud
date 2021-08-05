@@ -44,4 +44,3 @@ feign:
 #    resource:
 #      user-info-uri: http://localhost:11011/current/get
 #      id: penguins-user-provider
-debug: true

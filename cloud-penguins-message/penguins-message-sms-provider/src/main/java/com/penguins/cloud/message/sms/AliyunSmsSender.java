@@ -3,6 +3,7 @@ package com.penguins.cloud.message.sms;
 import com.aliyun.dysmsapi20170525.Client;
 import com.aliyun.dysmsapi20170525.models.SendSmsRequest;
 import com.aliyun.teaopenapi.models.Config;
+import com.penguins.cloud.message.constants.SmsConstants;
 
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class AliyunSmsSender implements SmsSender {
             // 您的AccessKey Secret
             .setAccessKeySecret(accessKeySecret);
     // 访问的域名
-    config.endpoint = "dysmsapi.aliyuncs.com";
+    config.endpoint = SmsConstants.ALIYUN_ENDPOINT;
     return new Client(config);
   }
 

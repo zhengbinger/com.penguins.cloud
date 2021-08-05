@@ -9,6 +9,7 @@ import java.util.Map;
  * @email mydreambing@126.com
  */
 public class AliSmsBean {
+
   /** 短信接收人 */
   private List<String> receivers;
   /** 短信动态参数 */
