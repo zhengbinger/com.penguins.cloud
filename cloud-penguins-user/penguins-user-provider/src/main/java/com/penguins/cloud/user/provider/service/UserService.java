@@ -1,6 +1,7 @@
 package com.penguins.cloud.user.provider.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.penguins.cloud.user.api.dto.UserDto;
 import com.penguins.cloud.user.api.entity.User;
 
 /**
@@ -27,4 +28,12 @@ public interface UserService extends IService<User> {
    * @return long 角色ID
    */
   long getRoleIdByUserName(String username);
+
+  /**
+   * 保存/新增用户
+   *
+   * @param userDto
+   * @return
+   */
+  boolean saveUser(UserDto userDto);
 }

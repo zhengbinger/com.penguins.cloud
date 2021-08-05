@@ -5,6 +5,7 @@ if (!JavaVersion.current().java8Compatible) {
 
 include 'cloud-penguins-commons'
 include 'cloud-penguins-auth'
+include 'cloud-penguins-auth:penguins-auth-api'
 include 'cloud-penguins-auth:penguins-auth-client'
 include 'cloud-penguins-auth:penguins-auth-provider'
 
@@ -27,8 +28,4 @@ include 'cloud-penguins-user:penguins-user-provider'
 include 'cloud-penguins-files'
 include 'cloud-penguins-files:penguins-files-api'
 include 'cloud-penguins-files:penguins-files-provider'
-
-include 'cloud-penguins-auth:penguins-auth-api'
-include 'cloud-penguins-auth:penguins-auth-client'
-include 'cloud-penguins-auth:penguins-auth-provider'
 

@@ -4,6 +4,7 @@ import com.penguins.cloud.commons.web.RspResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.TypeMismatchException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.FieldError;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -142,6 +144,30 @@ public class GlobalExceptionHandler {
             message = errors.get(0).getDefaultMessage();
         }
         return RspResult.fail(message);
+    }
+
+    /**
+     * 处理SQL异常
+     *
+     * @param e SQLException
+     * @return RspResult<Object>
+     */
+    @ExceptionHandler(value = SQLException.class)
+    public RspResult<Object> sqlException(SQLException e) {
+        e.printStackTrace();
+        return RspResult.fail(e.getMessage());
+    }
+
+    /**
+     * 处理key值重复异常
+     *
+     * @param e DuplicateKeyException
+     * @return RspResult<Object>
+     */
+    @ExceptionHandler(value = DuplicateKeyException.class)
+    public RspResult<Object> duplicateKeyException(DuplicateKeyException e) {
+        e.printStackTrace();
+        return RspResult.fail(e.getMessage());
     }
 
     /**

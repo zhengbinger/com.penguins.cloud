@@ -7,6 +7,8 @@ import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
 /**
+ * 短信服务实现（到消息队列）
+ *
  * @author 郑冰
  * @date 2021/8/4 15:31
  * @email mydreambing@126.com

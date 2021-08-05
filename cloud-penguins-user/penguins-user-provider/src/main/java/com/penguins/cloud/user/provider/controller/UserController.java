@@ -6,7 +6,6 @@ import com.penguins.cloud.user.api.entity.User;
 import com.penguins.cloud.user.provider.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -38,13 +37,11 @@ public class UserController {
   public RspResult<User> addition(@RequestBody UserDto userDto) {
     // 处理 DTO 中需要特殊处理的数据
     // 转换 DTO 数据为实体类对象数据
-    User user = new User();
-    BeanUtils.copyProperties(userDto, user);
-    user.setPassword(passwordEncoder.encode(user.getPassword()));
+    userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
     // 保存或更新用户数据
-    boolean saved = userService.save(user);
+    boolean saved = userService.saveUser(userDto);
     if (saved) {
-      return RspResult.success(user);
+      return RspResult.success(userDto);
     }
     return RspResult.fail("保存用户失败");
   }

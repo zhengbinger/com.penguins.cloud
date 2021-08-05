@@ -1,10 +1,12 @@
 package com.penguins.cloud.user.provider.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.penguins.cloud.user.api.dto.UserDto;
 import com.penguins.cloud.user.api.entity.User;
 import com.penguins.cloud.user.provider.mapper.UserRepository;
 import com.penguins.cloud.user.provider.service.ISmsService;
 import com.penguins.cloud.user.provider.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -26,9 +28,18 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
   private ISmsService smsService;
 
   @Override
-  public boolean save(User user) {
-    smsService.sendSms(user.getUsername());
-    return false;
+  public boolean saveUser(UserDto userDto) {
+    User user = new User();
+    BeanUtils.copyProperties(userDto, user);
+    // 用户基本信息
+    boolean saved = save(user);
+    // 用户联系信息
+    if (saved) {
+      // 发送短信
+      smsService.sendSms(user.getUsername());
+      // 发送邮件
+    }
+    return saved;
   }
 
   @Override
@@ -42,6 +53,5 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
   public User getUserByUsername(String username) {
     return userRepository.getUserByUsername(username);
   }
-
 
 }
