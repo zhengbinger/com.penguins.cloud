@@ -2,19 +2,13 @@ configure(allprojects) { project ->
 //创建项目时填写
     group 'com.penguins.cloud'
     version '0.0.1-SNAPSHOT'
-
-    apply plugin: 'maven'
-
-    ext {
-        camundaVersion = '7.14.0'
-    }
+    apply plugin: 'java'
 }
 
-//设定子模块项目中的配置
+// 设定子模块项目中的配置
 configure(subprojects) { subprojects ->
 
-    //此处主要为了过滤容器模块中的插件配置，容器模块的主要用来管理下属部分的模块，无需添加依赖和插件
-//    if (!holderProjects.contains(subproject.name)) {
+    // 此处主要为了过滤容器模块中的插件配置，容器模块的主要用来管理下属部分的模块，无需添加依赖和插件
     apply plugin: 'java'
     apply plugin: 'idea'
 
@@ -29,21 +23,11 @@ configure(subprojects) { subprojects ->
     repositories {
         mavenLocal()
         maven {
+            allowInsecureProtocol = true
             url 'http://maven.aliyun.com/nexus/content/groups/public/'
         }
         mavenCentral()
     }
-
-//        dependencies {
-//            implementation libs['commons-lang3']
-//            //lombok
-//            annotationProcessor libs['lombok']
-//            compileOnly libs['lombok']
-//            testAnnotationProcessor libs['lombok']
-//            testCompileOnly libs['lombok']
-//
-//            testImplementation libs['junit']
-//        }
 
     //spring boot 插件
     apply plugin: 'org.springframework.boot'
@@ -51,7 +35,7 @@ configure(subprojects) { subprojects ->
     apply plugin: 'io.spring.dependency-management'
     // 项目中所使用到的依赖，这里添加的依赖会被所有项目，包括root项目继承
     dependencies {
-        compile("org.slf4j:slf4j-api:1.7.16")
+        implementation "org.slf4j:slf4j-api:1.7.16"
 
         //lombok
 //        annotationProcessor 'org.projectlombok:lombok:1.18.20'
@@ -62,7 +46,7 @@ configure(subprojects) { subprojects ->
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation 'org.springframework.boot:spring-boot-devtools'
         implementation 'org.springframework.boot:spring-boot-maven-plugin:2.4.3'
-        testCompile('org.springframework.boot:spring-boot-starter-test')
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
     dependencyManagement {
         imports {
@@ -71,12 +55,9 @@ configure(subprojects) { subprojects ->
             mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${alibabaCloudVersion}"
         }
     }
-//    jar {
-//        manifest.attributes provider: 'gradle'
-//    }
 }
 
-//声明gradle脚本自身需要使用的资源
+// 声明gradle脚本自身需要使用的资源
 buildscript {
     // repositories 为什么要要声明两次
     // buildscript 中的声明是 gradle 脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven 仓库地址等。
@@ -84,6 +65,7 @@ buildscript {
     repositories {
         mavenLocal()
         maven {
+            allowInsecureProtocol = true
             url "http://maven.aliyun.com/nexus/content/groups/public/"
         }
         mavenCentral()
@@ -91,7 +73,7 @@ buildscript {
 
     ext {
         // 这里管理版本
-        springbootVersion = '2.4.2'
+        springbootVersion = '2.5.3'
         springCloudVersion = '2020.0.0'
         alibabaCloudVersion = '2021.1'
     }
@@ -99,6 +81,6 @@ buildscript {
     dependencies {
         // spring-boot 插件
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springbootVersion")
-        classpath('com.bmuschko:gradle-docker-plugin:6.7.0')
+//        classpath('com.bmuschko:gradle-docker-plugin:6.7.0')
     }
 }

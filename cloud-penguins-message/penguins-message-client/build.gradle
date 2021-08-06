@@ -1,7 +1,7 @@
 jar.enabled = true
 
 dependencies {
-    compile project(':cloud-penguins-commons')
-    compile project(':cloud-penguins-message:penguins-message-api')
+    implementation project(':cloud-penguins-commons')
+    implementation project(':cloud-penguins-message:penguins-message-api')
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 }

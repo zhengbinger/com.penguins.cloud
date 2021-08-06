@@ -1,7 +1,7 @@
 dependencies {
-    compile project(':cloud-penguins-commons')
-    compile project(':cloud-penguins-user:penguins-user-api')
-    compile project(':cloud-penguins-user:penguins-user-client')
+    implementation project(':cloud-penguins-commons')
+    implementation project(':cloud-penguins-user:penguins-user-api')
+    implementation project(':cloud-penguins-user:penguins-user-client')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
 //    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.2.4.RELEASE'

@@ -1,4 +1,4 @@
-apply plugin: "com.bmuschko.docker-spring-boot-application"
+//apply plugin: "com.bmuschko.docker-spring-boot-application"
 
 dependencies {
     implementation project(':cloud-penguins-commons')
