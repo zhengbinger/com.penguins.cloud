@@ -16,5 +16,5 @@ public interface SmsSender {
    *
    * @param params 发送短信所需参数
    */
-  void send(Map<String, Object> params);
+  void send(Map<String, Object> params) throws Exception;
 }

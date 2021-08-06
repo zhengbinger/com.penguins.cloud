@@ -12,8 +12,10 @@ public class AliSmsBean {
 
   /** 短信接收人 */
   private List<String> receivers;
+
   /** 短信动态参数 */
   private Map<String, Object> params;
+
   /** 短信模板编码 */
   private String templateCode;
 }

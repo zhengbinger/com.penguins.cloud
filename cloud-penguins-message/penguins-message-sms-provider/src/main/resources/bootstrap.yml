@@ -24,3 +24,7 @@ spring:
           destination: sms-topic
           content-type: text/plain
           group: sms-group
+aliyun:
+  sms:
+    accessKeyId: W1rH2R0wNNR4fpdy
+    accessKeySecret: LcsXozPf0oNvbjEXzXeAXk1gNGhNOj

@@ -28,7 +28,8 @@ public class Swagger2Config implements WebMvcConfigurer {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.penguins")) // 为controller生成文档
+                // 为controller生成文档
+                .apis(RequestHandlerSelectors.basePackage("com.penguins"))
                 .paths(PathSelectors.any())
                 .build();
     }

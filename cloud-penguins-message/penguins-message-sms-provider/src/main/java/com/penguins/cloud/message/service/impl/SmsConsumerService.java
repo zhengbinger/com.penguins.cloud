@@ -1,7 +1,9 @@
 package com.penguins.cloud.message.service.impl;
 
+import com.penguins.cloud.message.sms.SmsSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,9 @@ public class SmsConsumerService {
 
     private Logger log = LoggerFactory.getLogger(SmsConsumerService.class);
 
+    @Autowired
+    private SmsSender smsSender;
+
     /**
      * 函数式编辑接收消息
      *
@@ -26,6 +31,11 @@ public class SmsConsumerService {
     @Bean
     public Consumer<String> sms() {
         return message -> {
+            try {
+                smsSender.send(null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             log.info("接收的普通消息为：{}", message);
         };
     }

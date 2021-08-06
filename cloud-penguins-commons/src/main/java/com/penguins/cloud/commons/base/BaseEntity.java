@@ -7,6 +7,6 @@ package com.penguins.cloud.commons.base;
  * @date 2021/3/18 19:22
  * @email mydreambing@126.com
  */
-public class BaseEntity {
+public interface BaseEntity {
 
 }
