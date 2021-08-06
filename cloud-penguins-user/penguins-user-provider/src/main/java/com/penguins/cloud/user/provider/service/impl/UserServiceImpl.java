@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 用户服务接口实现
@@ -28,6 +29,19 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
   private ISmsService smsService;
 
   @Override
+  @Cacheable(cacheNames = {"username::roleid"})
+  public long getRoleIdByUserName(String username) {
+    return userRepository.getRoleIdByUserName(username);
+  }
+
+  @Override
+  @Cacheable(cacheNames = {"username"})
+  public User getUserByUsername(String username) {
+    return userRepository.getUserByUsername(username);
+  }
+
+  @Override
+  @Transactional(rollbackFor = Exception.class)
   public boolean saveUser(UserDto userDto) {
     User user = new User();
     BeanUtils.copyProperties(userDto, user);
@@ -40,18 +54,6 @@ public class UserServiceImpl extends ServiceImpl<UserRepository, User> implement
       // 发送邮件
     }
     return saved;
-  }
-
-  @Override
-  @Cacheable(cacheNames = {"username::roleid"})
-  public long getRoleIdByUserName(String username) {
-    return userRepository.getRoleIdByUserName(username);
-  }
-
-  @Override
-  @Cacheable(cacheNames = {"username"})
-  public User getUserByUsername(String username) {
-    return userRepository.getUserByUsername(username);
   }
 
 }

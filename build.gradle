@@ -1,10 +1,8 @@
 configure(allprojects) { project ->
-//创建项目时填写
     group 'com.penguins.cloud'
     version '0.0.1-SNAPSHOT'
     apply plugin: 'java'
 }
-
 // 设定子模块项目中的配置
 configure(subprojects) { subprojects ->
 
@@ -36,17 +34,18 @@ configure(subprojects) { subprojects ->
     // 项目中所使用到的依赖，这里添加的依赖会被所有项目，包括root项目继承
     dependencies {
         implementation "org.slf4j:slf4j-api:1.7.16"
-
-        //lombok
+        // lombok
 //        annotationProcessor 'org.projectlombok:lombok:1.18.20'
 //        compileOnly 'org.projectlombok:lombok:1.18.20'
 //        testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 //        testCompileOnly 'org.projectlombok:lombok:1.18.20'
-        //另外一种形式 (group + name + version) compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.16'
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation 'org.springframework.boot:spring-boot-devtools'
         implementation 'org.springframework.boot:spring-boot-maven-plugin:2.4.3'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        implementation 'io.springfox:springfox-swagger2:3.0.0'
+        implementation 'com.github.xiaoymin:swagger-bootstrap-ui:1.9.6'
     }
     dependencyManagement {
         imports {
@@ -72,9 +71,8 @@ buildscript {
     }
 
     ext {
-        // 这里管理版本
         springbootVersion = '2.5.3'
-        springCloudVersion = '2020.0.0'
+        springCloudVersion = '2020.0.3'
         alibabaCloudVersion = '2021.1'
     }
 
