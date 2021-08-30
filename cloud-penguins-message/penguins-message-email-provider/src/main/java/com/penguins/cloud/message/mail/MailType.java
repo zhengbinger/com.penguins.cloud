@@ -8,16 +8,23 @@ package com.penguins.cloud.message.mail;
  * @email mydreambing@126.com
  */
 public enum MailType {
-  /** 基础文本邮件 */
-  text("文本邮件"),
-  /** 附件邮件 */
-  attachment("附件邮件"),
-  /** 模板邮件 */
-  template("模板邮件");
+  
+    /**
+     * 基础文本邮件
+     */
+    text("文本邮件"),
+    /**
+     * 附件邮件
+     */
+    attachment("附件邮件"),
+    /**
+     * 模板邮件
+     */
+    template("模板邮件");
 
-  private String name;
+    private String name;
 
-  MailType(String name) {
-    this.name = name;
-  }
+    MailType(String name) {
+        this.name = name;
+    }
 }

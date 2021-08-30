@@ -19,38 +19,39 @@ import java.security.Principal;
 @RestController
 public class TestController {
 
-  @Autowired
-  private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-  @GetMapping("fail")
-  public String fail() {
-    return "fail";
-  }
+    @GetMapping(value = "fail", params = {})
+    public String fail() {
+        return "fail";
+    }
 
-  @GetMapping("success")
-  public String success() {
-    return "success";
-  }
+    @GetMapping("success")
+    public String success() {
+        return "success";
+    }
 
-  @GetMapping("encode")
-  public String encode(String password) {
-    return passwordEncoder.encode(password);
-  }
-  /**
-   * 获取授权的用户信息
-   *
-   * @param principal 当前用户
-   * @return 授权信息
-   */
-  @GetMapping("current/get")
-  public Principal user(Principal principal) {
-    return principal;
-  }
+    @GetMapping("encode")
+    public String encode(String password) {
+        return passwordEncoder.encode(password);
+    }
 
-  @GetMapping("/foo/test")
-  public String test() {
-    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    System.out.println("current authentication: 【 {} 】" + authentication);
-    return "success";
-  }
+    /**
+     * 获取授权的用户信息
+     *
+     * @param principal 当前用户
+     * @return 授权信息
+     */
+    @GetMapping("current/get")
+    public Principal user(Principal principal) {
+        return principal;
+    }
+
+    @GetMapping("/foo/test")
+    public String test() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("current authentication: 【 {} 】" + authentication);
+        return "success";
+    }
 }

@@ -8,5 +8,17 @@ package com.penguins.cloud.commons.exception;
  * @email mydreambing@126.com
  */
 public class PenguinsException extends RuntimeException {
-  private static final long serialVersionUID = -3286131001092080241L;
+    private static final long serialVersionUID = -3286131001092080241L;
+
+    public PenguinsException() {
+        super();
+    }
+
+    public PenguinsException(String message) {
+        super(message);
+    }
+
+    public PenguinsException(String message, int code) {
+        super(message);
+    }
 }

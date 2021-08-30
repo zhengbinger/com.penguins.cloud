@@ -27,7 +27,6 @@ public class YamlUtils {
     public static Map<String, Object> yamlHandler(@NonNull String resource) throws IOException {
         //返回的结果
         Map<String, Object> result = new LinkedHashMap<>();
-
         //单文件处理
         Yaml yaml = new Yaml();
         Object object = yaml.load(resource);
