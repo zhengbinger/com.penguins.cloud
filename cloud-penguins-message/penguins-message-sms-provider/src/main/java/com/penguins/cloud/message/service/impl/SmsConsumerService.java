@@ -18,7 +18,7 @@ import java.util.function.Consumer;
 @Service
 public class SmsConsumerService {
 
-    private Logger log = LoggerFactory.getLogger(SmsConsumerService.class);
+    private final Logger log = LoggerFactory.getLogger(SmsConsumerService.class);
 
     @Autowired
     private SmsSender smsSender;
@@ -34,6 +34,7 @@ public class SmsConsumerService {
             try {
                 smsSender.send(null);
             } catch (Exception e) {
+                log.error("" + e);
                 e.printStackTrace();
             }
             log.info("接收的普通消息为：{}", message);
