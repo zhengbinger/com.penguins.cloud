@@ -1,6 +1,6 @@
 package com.penguins.cloud.user.provider.controller;
 
-import com.penguins.cloud.commons.web.RspResult;
+import com.penguins.cloud.web.RspResult;
 import com.penguins.cloud.user.api.entity.Permission;
 import com.penguins.cloud.user.provider.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;

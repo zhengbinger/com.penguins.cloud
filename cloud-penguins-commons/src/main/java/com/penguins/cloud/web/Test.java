@@ -1,4 +1,4 @@
-package com.penguins.cloud.commons.web;
+package com.penguins.cloud.web;
 
 /**
  * @author 郑冰

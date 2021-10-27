@@ -1,4 +1,4 @@
-package com.penguins.cloud.commons;
+package com.penguins.cloud;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

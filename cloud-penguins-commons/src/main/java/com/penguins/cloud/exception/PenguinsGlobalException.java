@@ -1,4 +1,4 @@
-package com.penguins.cloud.commons.exception;
+package com.penguins.cloud.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

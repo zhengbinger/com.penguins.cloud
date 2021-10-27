@@ -1,4 +1,4 @@
-package com.penguins.cloud.commons.base;
+package com.penguins.cloud.base;
 
 import java.time.LocalDateTime;
 

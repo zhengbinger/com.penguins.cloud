@@ -1,6 +1,6 @@
-package com.penguins.cloud.commons.exception;
+package com.penguins.cloud.exception;
 
-import com.penguins.cloud.commons.web.RspResult;
+import com.penguins.cloud.web.RspResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.TypeMismatchException;

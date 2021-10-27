@@ -1,4 +1,4 @@
-package com.penguins.cloud.commons.utils;
+package com.penguins.cloud.utils;
 
 /**
  * Gson 工具类

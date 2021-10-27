@@ -1,8 +1,8 @@
 package com.penguins.cloud.user.provider.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.penguins.cloud.commons.exception.PenguinsException;
-import com.penguins.cloud.commons.utils.UUID;
+import com.penguins.cloud.exception.PenguinsException;
+import com.penguins.cloud.utils.UUID;
 import com.penguins.cloud.user.provider.service.RedisService;
 import com.penguins.cloud.user.provider.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;

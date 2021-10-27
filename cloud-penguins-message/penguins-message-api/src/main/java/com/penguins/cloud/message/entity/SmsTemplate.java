@@ -1,6 +1,6 @@
 package com.penguins.cloud.message.entity;
 
-import com.penguins.cloud.commons.base.BaseEntityCreator;
+import com.penguins.cloud.base.BaseEntityCreator;
 
 import java.io.Serializable;
 

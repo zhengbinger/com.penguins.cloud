@@ -1,6 +1,6 @@
 package com.penguins.cloud.user.provider.controller;
 
-import com.penguins.cloud.commons.web.RspResult;
+import com.penguins.cloud.web.RspResult;
 import com.penguins.cloud.user.provider.config.AutoIdempotent;
 import com.penguins.cloud.user.provider.service.TokenService;
 import org.apache.commons.lang3.StringUtils;

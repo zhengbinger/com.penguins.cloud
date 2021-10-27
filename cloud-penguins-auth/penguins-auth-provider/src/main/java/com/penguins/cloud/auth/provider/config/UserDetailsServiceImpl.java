@@ -1,7 +1,7 @@
 package com.penguins.cloud.auth.provider.config;
 
 import com.penguins.cloud.auth.provider.entity.UserInfo;
-import com.penguins.cloud.commons.web.RspResult;
+import com.penguins.cloud.web.RspResult;
 import com.penguins.cloud.user.api.entity.Role;
 import com.penguins.cloud.user.api.entity.User;
 import com.penguins.cloud.user.client.service.RoleFeignService;

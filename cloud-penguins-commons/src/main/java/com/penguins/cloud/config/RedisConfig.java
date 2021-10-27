@@ -1,4 +1,4 @@
-package com.penguins.cloud.commons.config;
+package com.penguins.cloud.config;
 
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;

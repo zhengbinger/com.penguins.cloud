@@ -1,4 +1,4 @@
-package com.penguins.cloud.commons.exception;
+package com.penguins.cloud.exception;
 
 /**
  * 自定义 Feign 远程调用异常

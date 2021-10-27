@@ -1,6 +1,6 @@
 package com.penguins.cloud.user.client.service.impl;
 
-import com.penguins.cloud.commons.web.RspResult;
+import com.penguins.cloud.web.RspResult;
 import com.penguins.cloud.user.api.entity.User;
 import com.penguins.cloud.user.client.service.UserFeignService;
 import org.slf4j.Logger;

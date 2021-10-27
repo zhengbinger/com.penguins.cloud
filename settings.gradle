@@ -30,3 +30,5 @@ include 'cloud-penguins-files'
 include 'cloud-penguins-files:penguins-files-api'
 include 'cloud-penguins-files:penguins-files-provider'
 
+include 'cloud-penguins-snaker'
+

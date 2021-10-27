@@ -1,4 +1,4 @@
-package com.penguins.cloud.commons.utils.constant;
+package com.penguins.cloud.utils.constant;
 
 /**
  * 系统常量

@@ -1,4 +1,4 @@
-package com.penguins.cloud.commons.exception;
+package com.penguins.cloud.exception;
 
 /**
  * penguins 自定义异常基类

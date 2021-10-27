@@ -1,6 +1,6 @@
 package com.penguins.cloud.user.client.service;
 
-import com.penguins.cloud.commons.web.RspResult;
+import com.penguins.cloud.web.RspResult;
 import com.penguins.cloud.user.api.entity.Role;
 import com.penguins.cloud.user.client.config.UserProviderFallBackConfig;
 import com.penguins.cloud.user.client.service.impl.RoleFeignServiceImpl;

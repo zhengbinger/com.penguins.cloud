@@ -1,4 +1,4 @@
-package com.penguins.cloud.commons.base;
+package com.penguins.cloud.base;
 
 /**
  * 实体类基类

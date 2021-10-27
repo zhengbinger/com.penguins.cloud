@@ -1,7 +1,7 @@
 package com.penguins.cloud.user.provider.config;
 
 import com.alibaba.fastjson.JSON;
-import com.penguins.cloud.commons.web.RspResult;
+import com.penguins.cloud.web.RspResult;
 import com.penguins.cloud.user.provider.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
