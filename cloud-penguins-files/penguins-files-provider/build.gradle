@@ -1,13 +1,13 @@
 dependencies {
     implementation project(':cloud-penguins-commons')
     implementation project(':cloud-penguins-files:penguins-files-api')
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.2.4.RELEASE'
-    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
-    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.2.0'
-    runtimeOnly 'mysql:mysql-connector-java'
-    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
-    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.1'
+    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.2.5.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.5.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.0.4'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.4.3.4'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.25'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2021.1'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2021.1'
 }

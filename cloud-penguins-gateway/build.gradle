@@ -2,13 +2,13 @@
 
 dependencies {
     implementation project(':cloud-penguins-commons')
-    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.0.4'
 //    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.2.4.RELEASE'
 //    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.4.RELEASE'
 //    implementation 'org.springframework.security:spring-security-oauth2-resource-server'
-    runtimeOnly 'mysql:mysql-connector-java'
-    implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
-    implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
-    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
-    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.25'
+    implementation 'org.springframework.cloud:spring-cloud-starter-gateway:3.0.5'
+    implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer:3.0.4'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2021.1'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2021.1'
 }

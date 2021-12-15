@@ -1,17 +1,17 @@
 dependencies {
     implementation project(':cloud-penguins-commons')
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.1'
+    implementation 'org.springframework.boot:spring-boot-starter-mail:2.6.1'
 
 //    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
 //    implementation 'com.baomidou:mybatis-plus-boot-starter:3.2.0'
 //    runtimeOnly 'mysql:mysql-connector-java'
-    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
-    runtimeOnly('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery') {
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.0.4'
+    runtimeOnly('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2021.1') {
         exclude group: 'org.springframework.cloud', module: 'spring-cloud-starter-netflix-ribbon'
     }
-    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
-    implementation 'com.alibaba.cloud:spring-cloud-starter-stream-rocketmq'
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-    implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2021.1'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-stream-rocketmq:2021.1'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.0.5'
+    implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer:3.0.4'
 }

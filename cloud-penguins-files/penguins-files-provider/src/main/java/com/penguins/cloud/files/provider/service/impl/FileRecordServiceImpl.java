@@ -18,7 +18,6 @@ public class FileRecordServiceImpl extends ServiceImpl<FileRecordMapper, FileRec
     implements FileRecordService {
 
   @Override
-//  @Cacheable(cacheNames = {"files"})
   public FileRecord getById(Serializable id) {
     return super.getById(id);
   }

@@ -1,7 +1,5 @@
 package com.penguins.cloud.datatype;
 
-import java.util.ArrayList;
-
 /**
  * 自定义List
  *
@@ -16,7 +14,7 @@ public class PenguinsList<T extends Object> {
      */
     private static final int DEFAULT_CAPACITY = 10;
 
-    private Object[] penguins = null;
+    private Object[] penguins;
 
     private int capacity=0;
 
@@ -75,6 +73,7 @@ public class PenguinsList<T extends Object> {
 
     public static void main(String[] args) {
         PenguinsList<String> penguinsList= new PenguinsList<>();
+        
         penguinsList.add("a");
         penguinsList.add("a");
         penguinsList.add("a");
@@ -86,7 +85,6 @@ public class PenguinsList<T extends Object> {
         penguinsList.add("a");
         penguinsList.add("a");
         penguinsList.add("a");
-
 
         System.out.println(penguinsList.size());
         System.out.println(penguinsList.get(10));
