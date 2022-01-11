@@ -26,7 +26,7 @@ spring:
         connect-timeout: 5000
       routes:
         - id: auth
-          uri: http://localhost:11011 # 请求要转发到的地址
+          uri: http://penguins-auth-provider # 请求要转发到的地址
           order: 1                      # 路由的优先级,数字越小级别越高
           predicates: # 断言(就是路由转发要满足的条件)
             - Path=/auth/**             # 当请求路径满足Path指定的规则时,才进行路由转发
@@ -44,6 +44,13 @@ spring:
           order: 1                      # 路由的优先级,数字越小级别越高
           predicates: # 断言(就是路由转发要满足的条件)
             - Path=/user/**             # 当请求路径满足Path指定的规则时,才进行路由转发
+          filters: # 过滤器,请求在传递过程中可以通过过滤器对其进行一定的修改
+            - StripPrefix=1 # 转发之前去掉1层路径
+        - id: mail
+          uri: lb://penguins-message-email-provider # 请求要转发到的地址
+          order: 1                      # 路由的优先级,数字越小级别越高
+          predicates: # 断言(就是路由转发要满足的条件)
+            - Path=/mail/**             # 当请求路径满足Path指定的规则时,才进行路由转发
           filters: # 过滤器,请求在传递过程中可以通过过滤器对其进行一定的修改
             - StripPrefix=1 # 转发之前去掉1层路径
 
