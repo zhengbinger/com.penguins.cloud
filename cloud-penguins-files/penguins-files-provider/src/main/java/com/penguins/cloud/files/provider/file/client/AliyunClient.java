@@ -11,7 +11,6 @@ import com.aliyun.oss.OSSClientBuilder;
  **/
 public class AliyunClient implements OssClient {
 
-
     @Override
     public OssClient getClient() {
 

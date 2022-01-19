@@ -10,5 +10,5 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java:8.0.25'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2021.1'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2021.1'
-    implementation 'com.aliyun.oss:aliyun-sdk-oss:3.10.2'
+    implementation 'com.aliyun.oss:aliyun-sdk-oss:3.13.2'
 }

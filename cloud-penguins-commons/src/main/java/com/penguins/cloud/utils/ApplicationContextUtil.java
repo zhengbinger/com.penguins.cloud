@@ -3,6 +3,7 @@ package com.penguins.cloud.utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,7 @@ import java.util.Map;
  * @since jdk8
  **/
 @Component
+@ConditionalOnBean(ApplicationContext.class)
 public class ApplicationContextUtil implements ApplicationContextAware {
 
     private static final Logger log = LoggerFactory.getLogger(ApplicationContextUtil.class);
