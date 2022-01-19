@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * 文件服务主启动类
@@ -13,11 +14,12 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @email mydreambing@126.com
  */
 @EnableCaching
+@EnableSwagger2
 @EnableDiscoveryClient
 @SpringBootApplication
 public class PenguinsFilesProviderApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(PenguinsFilesProviderApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(PenguinsFilesProviderApplication.class, args);
+    }
 }

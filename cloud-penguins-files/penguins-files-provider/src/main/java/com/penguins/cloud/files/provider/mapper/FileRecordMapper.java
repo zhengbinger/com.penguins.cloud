@@ -1,7 +1,7 @@
 package com.penguins.cloud.files.provider.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.penguins.cloud.files.provider.entity.FileRecord;
+import com.penguins.cloud.files.api.entity.FileRecord;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,4 +10,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @email mydreambing@126.com
  */
 @Mapper
-public interface FileRecordMapper extends BaseMapper<FileRecord> {}
+public interface FileRecordMapper extends BaseMapper<FileRecord> {
+}

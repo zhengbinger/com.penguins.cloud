@@ -8,12 +8,12 @@ package com.penguins.cloud.files.provider.file.client;
  * @email mydreambing@126.com
  * @since jdk8
  **/
-public interface OssClient {
+public interface OssClient<T> {
 
     /**
      * 获取Client 实例
      *
      * @return
      */
-    OssClient getClient();
+    T getClient(OssConfigurationProperties ossConfigurationProperties);
 }

@@ -1,4 +1,4 @@
-package com.penguins.cloud.file.api;
+package com.penguins.cloud.files.api;
 
 /**
  * @author zhengbing
@@ -6,5 +6,5 @@ package com.penguins.cloud.file.api;
  * @email mydreambing@126.com
  */
 public class Test {
-  public static final String NAME = "china";
+    public static final String NAME = "china";
 }

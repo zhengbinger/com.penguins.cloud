@@ -3,7 +3,7 @@ package com.penguins.cloud.files.provider.file.client;
 import com.sun.istack.NotNull;
 
 /**
- * 对象存储客户端获取
+ * 对象存储客户端获取工厂类
  *
  * @author 郑冰
  * @date 2022/1/19 18:16
@@ -42,15 +42,13 @@ public class OssClientFactory {
 
 
     public static void main(String[] args) {
-        try {
-            String s = OssClientFactory.getClient("java.lang.String");
-            System.out.println(1);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+
+//        try {
+//            AliyunOssClient s = OssClientFactory.getClient(AliyunOssClient.class);
+//            System.out.println(s.getClient());
+//            System.out.println(1);
+//        } catch (InstantiationException | IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
     }
 }

@@ -12,6 +12,11 @@ spring:
         group: penguins
         file-extension: yml
         namespace: penguins
+  datasource:
+    hikari:
+      username:
+      password:
+      jdbc-url:
 
 security:
   oauth2:

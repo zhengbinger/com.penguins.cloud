@@ -4,6 +4,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
+ * Aliyun 配置属性类
+ *
  * @author 郑冰
  * @date 2022/1/19 17:15
  * @email mydreambing@126.com
@@ -11,7 +13,9 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 @ConfigurationProperties(prefix = "penguins.oss.aliyun")
-public class AliyunClientProperties {
+public class AliyunOssConfigurationProperties implements OssConfigurationProperties {
+
+    private String endpoint = "https://oss-cn-hangzhou.aliyuncs.com";
 
     private String accessKeyId;
 
@@ -21,7 +25,16 @@ public class AliyunClientProperties {
         return accessKeyId;
     }
 
-    public AliyunClientProperties setAccessKeyId(String accessKeyId) {
+    public String getEndpoint() {
+        return endpoint;
+    }
+
+    public AliyunOssConfigurationProperties setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
+        return this;
+    }
+
+    public AliyunOssConfigurationProperties setAccessKeyId(String accessKeyId) {
         this.accessKeyId = accessKeyId;
         return this;
     }
@@ -30,7 +43,7 @@ public class AliyunClientProperties {
         return accessSecret;
     }
 
-    public AliyunClientProperties setAccessSecret(String accessSecret) {
+    public AliyunOssConfigurationProperties setAccessSecret(String accessSecret) {
         this.accessSecret = accessSecret;
         return this;
     }
