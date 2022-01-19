@@ -3,23 +3,19 @@ jar.enabled = true
 dependencies {
     implementation project(':cloud-penguins-commons')
     implementation project(':cloud-penguins-message:penguins-message-api')
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.1'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
     implementation 'com.aliyun:aliyun-java-sdk-core:4.5.30'
-    implementation 'com.aliyun:tea-openapi:0.2.0'
+    implementation 'com.aliyun:tea-openapi:0.2.2'
     implementation 'com.aliyun:dysmsapi20170525:2.0.8'
 
-//    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
-//    implementation 'com.baomidou:mybatis-plus-boot-starter:3.2.0'
-//    runtimeOnly 'mysql:mysql-connector-java'
-    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.0.4'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.1.0'
     runtimeOnly('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2021.1') {
         exclude group: 'org.springframework.cloud', module: 'spring-cloud-starter-netflix-ribbon'
     }
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:2021.1'
     implementation 'com.alibaba.cloud:spring-cloud-starter-stream-rocketmq:2021.1'
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.0.5'
-    implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer:3.0.4'
-
-    implementation 'org.springframework.boot:spring-boot-configuration-processor:2.6.1'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.0'
+    implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer:3.1.0'
+    implementation 'org.springframework.boot:spring-boot-configuration-processor:2.6.2'
 
 }

@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("test")
 public class TestController {
 
-  //    @Value("${test}")
-  private String props;
+    private String props;
 
-  @GetMapping
-  public String test() {
-    return props;
-  }
+    @GetMapping
+    public String test() {
+        return props;
+    }
 }

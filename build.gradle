@@ -35,10 +35,6 @@ configure(subprojects) { subprojects ->
     dependencies {
         implementation "org.slf4j:slf4j-api:1.7.16"
         // lombok
-//        annotationProcessor 'org.projectlombok:lombok:1.18.20'
-//        compileOnly 'org.projectlombok:lombok:1.18.20'
-//        testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
-//        testCompileOnly 'org.projectlombok:lombok:1.18.20'
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation 'org.springframework.boot:spring-boot-devtools'
         implementation 'org.springframework.boot:spring-boot-maven-plugin:2.4.3'

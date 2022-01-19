@@ -18,3 +18,9 @@ security:
     resource:
       user-info-uri: http://localhost:11011/current/get
       id: penguins-files-provider
+
+penguins:
+  oss:
+    aliyun:
+      access-key-id: 1
+      access-secret: 1

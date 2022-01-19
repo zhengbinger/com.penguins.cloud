@@ -1,0 +1,6 @@
+jar.enabled = true
+
+dependencies {
+    implementation project(':cloud-penguins-files')
+    implementation project(':cloud-penguins-files:penguins-files-api')
+}

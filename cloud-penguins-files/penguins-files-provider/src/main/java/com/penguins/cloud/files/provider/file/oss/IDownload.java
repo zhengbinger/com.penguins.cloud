@@ -1,4 +1,4 @@
-package com.penguins.cloud.files.provider.core.manage;
+package com.penguins.cloud.files.provider.file.oss;
 
 import java.io.OutputStream;
 
