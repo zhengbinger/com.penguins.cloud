@@ -2,6 +2,7 @@ package com.penguins.cloud.files.provider.controller;
 
 import com.penguins.cloud.files.api.entity.FileRecord;
 import com.penguins.cloud.files.provider.service.FileRecordService;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,12 +26,12 @@ public class FileRecordController {
     @Value("${server.port}")
     private String port;
 
-    @GetMapping("get")
+    @GetMapping()
     public String get() throws InterruptedException {
         FileRecord file = fileRecordService.getById(1);
         if (null != file) {
             return file.toString();
         }
-        return null;
+        return Strings.EMPTY;
     }
 }

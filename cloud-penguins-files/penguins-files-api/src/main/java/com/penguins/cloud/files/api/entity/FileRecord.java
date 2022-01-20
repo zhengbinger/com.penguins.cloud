@@ -1,6 +1,8 @@
 package com.penguins.cloud.files.api.entity;
 
 /**
+ * 文件记录实体类
+ *
  * @author zhengbing
  * @date 2021/4/25 15:57
  * @email mydreambing@126.com

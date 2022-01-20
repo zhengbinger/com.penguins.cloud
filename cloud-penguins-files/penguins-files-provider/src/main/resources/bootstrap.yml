@@ -12,20 +12,27 @@ spring:
         group: penguins
         file-extension: yml
         namespace: penguins
-  datasource:
-    hikari:
-      username:
-      password:
-      jdbc-url:
 
-security:
-  oauth2:
-    resource:
-      user-info-uri: http://localhost:11011/current/get
-      id: penguins-files-provider
+#security:
+#  oauth2:
+#    resource:
+#      user-info-uri: http://localhost:11011/current/get
+#      id: penguins-files-provider
 
 penguins:
   oss:
     aliyun:
       access-key-id: 1
       access-secret: 1
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,5 @@
 package com.penguins.cloud.files.provider.file.client;
 
-import com.sun.istack.NotNull;
 
 /**
  * 对象存储客户端获取工厂类
@@ -21,7 +20,7 @@ public class OssClientFactory {
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    public static <T> T getClient(@NotNull Class<T> clazz) throws InstantiationException, IllegalAccessException {
+    public static <T> T getClient(Class<T> clazz) throws InstantiationException, IllegalAccessException {
         return clazz.newInstance();
     }
 
@@ -35,7 +34,7 @@ public class OssClientFactory {
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    public static <T> T getClient(@NotNull String clazz) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static <T> T getClient(String clazz) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         Class<T> clazzClass = (Class<T>) Class.forName(clazz);
         return clazzClass.newInstance();
     }
