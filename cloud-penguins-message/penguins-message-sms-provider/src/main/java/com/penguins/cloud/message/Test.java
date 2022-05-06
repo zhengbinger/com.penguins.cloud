@@ -37,7 +37,7 @@ public class Test {
         Object o = expression.getValue(demo);
 
         System.out.println(Objects.isNull(o));
-        ReflectionUtils.in
+//        ReflectionUtils.in
 
 // demo.list will now be a real collection of 4 entries
 // Each entry is a new empty String
